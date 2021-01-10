@@ -1,7 +1,7 @@
 {
   "title": "重构: 改善既有代码的设计",
   "language": "zh",
-  "plugins": ["prism", "-highlight", "anchors"],
+  "plugins": ["prism", "-highlight", "anchors", "toggle-chapters", "-lunr", "-search", "search-pro"],
   "styles" : {
     "website": "assets/website.css"
   }
