@@ -1,6 +1,7 @@
 # SUMMARY
 
-* [简介](./README.md)
+* [简介](README.md)
+* [序言](./docs/README.md)
 * [第 1 章 重构，第一个示例](./docs/ch1.md)
   * [1.1 起点](./docs/ch1.md#11-起点)
   * [1.2 对此起始程序的评价](./docs/ch1.md#12-对此起始程序的评价)
