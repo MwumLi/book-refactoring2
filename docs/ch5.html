@@ -1,0 +1,5265 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第 5 章 介绍重构名录 · 重构: 改善既有代码的设计</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../assets/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch5.html" />
+    
+    
+    <link rel="prev" href="ch4.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch1.html">
+            
+                <a href="ch1.html">
+            
+                    
+                    第 1 章 重构，第一个示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="ch1.html">
+            
+                <a href="ch1.html#11-起点">
+            
+                    
+                    1.1 起点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ch1.html">
+            
+                <a href="ch1.html#12-对此起始程序的评价">
+            
+                    
+                    1.2 对此起始程序的评价
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="ch1.html">
+            
+                <a href="ch1.html#13-重构的第一步">
+            
+                    
+                    1.3 重构的第一步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="ch1.html">
+            
+                <a href="ch1.html#14-分解-statement-函数">
+            
+                    
+                    1.4 分解 statement 函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="ch1.html">
+            
+                <a href="ch1.html#移除-play-变量">
+            
+                    
+                    移除 play 变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="ch1.html">
+            
+                <a href="ch1.html#移除-format-变量">
+            
+                    
+                    移除 format 变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="ch1.html">
+            
+                <a href="ch1.html#移除观众量积分总和">
+            
+                    
+                    移除观众量积分总和
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="ch1.html">
+            
+                <a href="ch1.html#15-进展：大量嵌套函数">
+            
+                    
+                    1.5 进展：大量嵌套函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="ch1.html">
+            
+                <a href="ch1.html#16-拆分计算阶段与格式化阶段">
+            
+                    
+                    1.6 拆分计算阶段与格式化阶段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="ch1.html">
+            
+                <a href="ch1.html#17-进展：分离到两个文件（和两个阶段）">
+            
+                    
+                    1.7 进展：分离到两个文件（和两个阶段）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="ch1.html">
+            
+                <a href="ch1.html#18-按类型重组计算过程">
+            
+                    
+                    1.8 按类型重组计算过程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="ch1.html">
+            
+                <a href="ch1.html#将函数搬移进计算器">
+            
+                    
+                    将函数搬移进计算器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="ch1.html">
+            
+                <a href="ch1.html#使演出计算器表现出多态性">
+            
+                    
+                    使演出计算器表现出多态性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="ch1.html">
+            
+                <a href="ch1.html#19-进展：使用多态计算器来提供数据">
+            
+                    
+                    1.9 进展：使用多态计算器来提供数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="ch1.html">
+            
+                <a href="ch1.html#110-结语">
+            
+                    
+                    1.10 结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch2.html">
+            
+                <a href="ch2.html">
+            
+                    
+                    第 2 章 重构的原则
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="ch2.html">
+            
+                <a href="ch2.html#21-何谓重构">
+            
+                    
+                    2.1 何谓重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="ch2.html">
+            
+                <a href="ch2.html#22-两顶帽子">
+            
+                    
+                    2.2 两顶帽子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="ch2.html">
+            
+                <a href="ch2.html#23-为何重构">
+            
+                    
+                    2.3 为何重构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="ch2.html">
+            
+                <a href="ch2.html#重构改进软件的设计">
+            
+                    
+                    重构改进软件的设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="ch2.html">
+            
+                <a href="ch2.html#重构使软件更容易理解">
+            
+                    
+                    重构使软件更容易理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="ch2.html">
+            
+                <a href="ch2.html#重构帮助找到-bug">
+            
+                    
+                    重构帮助找到 bug
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="ch2.html">
+            
+                <a href="ch2.html#重构提高编程速度">
+            
+                    
+                    重构提高编程速度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="ch2.html">
+            
+                <a href="ch2.html#24-何时重构">
+            
+                    
+                    2.4 何时重构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="ch2.html">
+            
+                <a href="ch2.html#预备性重构：让添加新功能更容易">
+            
+                    
+                    预备性重构：让添加新功能更容易
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="ch2.html">
+            
+                <a href="ch2.html#帮助理解的重构：使代码更易懂">
+            
+                    
+                    帮助理解的重构：使代码更易懂
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="ch2.html">
+            
+                <a href="ch2.html#捡垃圾式重构">
+            
+                    
+                    捡垃圾式重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="ch2.html">
+            
+                <a href="ch2.html#有计划的重构和见机行事的重构">
+            
+                    
+                    有计划的重构和见机行事的重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="ch2.html">
+            
+                <a href="ch2.html#长期重构">
+            
+                    
+                    长期重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="ch2.html">
+            
+                <a href="ch2.html#复审代码时重构">
+            
+                    
+                    复审代码时重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.7" data-path="ch2.html">
+            
+                <a href="ch2.html#怎么对经理说">
+            
+                    
+                    怎么对经理说
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.8" data-path="ch2.html">
+            
+                <a href="ch2.html#何时不应该重构">
+            
+                    
+                    何时不应该重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="ch2.html">
+            
+                <a href="ch2.html#25-重构的挑战">
+            
+                    
+                    2.5 重构的挑战
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.5.1" data-path="ch2.html">
+            
+                <a href="ch2.html#延缓新功能开发">
+            
+                    
+                    延缓新功能开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.2" data-path="ch2.html">
+            
+                <a href="ch2.html#代码所有权">
+            
+                    
+                    代码所有权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.3" data-path="ch2.html">
+            
+                <a href="ch2.html#分支">
+            
+                    
+                    分支
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.4" data-path="ch2.html">
+            
+                <a href="ch2.html#测试">
+            
+                    
+                    测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.5" data-path="ch2.html">
+            
+                <a href="ch2.html#遗留代码">
+            
+                    
+                    遗留代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.6" data-path="ch2.html">
+            
+                <a href="ch2.html#数据库">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="ch2.html">
+            
+                <a href="ch2.html#26-重构、架构和-yagni">
+            
+                    
+                    2.6 重构、架构和 YAGNI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="ch2.html">
+            
+                <a href="ch2.html#27-重构与软件开发过程">
+            
+                    
+                    2.7 重构与软件开发过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="ch2.html">
+            
+                <a href="ch2.html#28-重构与性能">
+            
+                    
+                    2.8 重构与性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="ch2.html">
+            
+                <a href="ch2.html#29-重构起源何处">
+            
+                    
+                    2.9 重构起源何处
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="ch2.html">
+            
+                <a href="ch2.html#210-自动化重构">
+            
+                    
+                    2.10 自动化重构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="ch2.html">
+            
+                <a href="ch2.html#211-延展阅读">
+            
+                    
+                    2.11 延展阅读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch3.html">
+            
+                <a href="ch3.html">
+            
+                    
+                    第 3 章 代码的坏味道
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="ch3.html">
+            
+                <a href="ch3.html#31-神秘命名（mysterious-name）">
+            
+                    
+                    3.1 神秘命名（Mysterious Name）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="ch3.html">
+            
+                <a href="ch3.html#32-重复代码（duplicated-code）">
+            
+                    
+                    3.2 重复代码（Duplicated Code）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="ch3.html">
+            
+                <a href="ch3.html#33-过长函数（long-function）">
+            
+                    
+                    3.3 过长函数（Long Function）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="ch3.html">
+            
+                <a href="ch3.html#34-过长参数列表（long-parameter-list）">
+            
+                    
+                    3.4 过长参数列表（Long Parameter List）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="ch3.html">
+            
+                <a href="ch3.html#35-全局数据（global-data）">
+            
+                    
+                    3.5 全局数据（Global Data）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="ch3.html">
+            
+                <a href="ch3.html#36-可变数据（mutable-data）">
+            
+                    
+                    3.6 可变数据（Mutable Data）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="ch3.html">
+            
+                <a href="ch3.html#37-发散式变化（divergent-change）">
+            
+                    
+                    3.7 发散式变化（Divergent Change）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="ch3.html">
+            
+                <a href="ch3.html#38-霰弹式修改（shotgun-surgery）">
+            
+                    
+                    3.8 霰弹式修改（Shotgun Surgery）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="ch3.html">
+            
+                <a href="ch3.html#39-依恋情结（feature-envy）">
+            
+                    
+                    3.9 依恋情结（Feature Envy）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="ch3.html">
+            
+                <a href="ch3.html#310-数据泥团（data-clumps）">
+            
+                    
+                    3.10 数据泥团（Data Clumps）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="ch3.html">
+            
+                <a href="ch3.html#311-基本类型偏执（primitive-obsession）">
+            
+                    
+                    3.11 基本类型偏执（Primitive Obsession）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="ch3.html">
+            
+                <a href="ch3.html#312-重复的-switch-（repeated-switches）">
+            
+                    
+                    3.12 重复的 switch （Repeated Switches）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="ch3.html">
+            
+                <a href="ch3.html#313-循环语句（loops）">
+            
+                    
+                    3.13 循环语句（Loops）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="ch3.html">
+            
+                <a href="ch3.html#314-冗赘的元素（lazy-element）">
+            
+                    
+                    3.14 冗赘的元素（Lazy Element）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="ch3.html">
+            
+                <a href="ch3.html#315-夸夸其谈通用性（speculative-generality）">
+            
+                    
+                    3.15 夸夸其谈通用性（Speculative Generality）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="ch3.html">
+            
+                <a href="ch3.html#316-临时字段（temporary-field）">
+            
+                    
+                    3.16 临时字段（Temporary Field）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="ch3.html">
+            
+                <a href="ch3.html#317-过长的消息链（message-chains）">
+            
+                    
+                    3.17 过长的消息链（Message Chains）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="ch3.html">
+            
+                <a href="ch3.html#318-中间人（middle-man）">
+            
+                    
+                    3.18 中间人（Middle Man）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="ch3.html">
+            
+                <a href="ch3.html#319-内幕交易（insider-trading）">
+            
+                    
+                    3.19 内幕交易（Insider Trading）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.20" data-path="ch3.html">
+            
+                <a href="ch3.html#320-过大的类（large-class）">
+            
+                    
+                    3.20 过大的类（Large Class）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.21" data-path="ch3.html">
+            
+                <a href="ch3.html#321-异曲同工的类（alternative-classes-with-different-interfaces）">
+            
+                    
+                    3.21 异曲同工的类（Alternative Classes with Different Interfaces）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.22" data-path="ch3.html">
+            
+                <a href="ch3.html#322-纯数据类（data-class）">
+            
+                    
+                    3.22 纯数据类（Data Class）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.23" data-path="ch3.html">
+            
+                <a href="ch3.html#323-被拒绝的遗赠（refused-bequest）">
+            
+                    
+                    3.23 被拒绝的遗赠（Refused Bequest）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.24" data-path="ch3.html">
+            
+                <a href="ch3.html#324-注释（comments）">
+            
+                    
+                    3.24 注释（Comments）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch4.html">
+            
+                <a href="ch4.html">
+            
+                    
+                    第 4 章 构筑测试体系
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="ch4.html">
+            
+                <a href="ch4.html#41-自测试代码的价值">
+            
+                    
+                    4.1 自测试代码的价值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="ch4.html">
+            
+                <a href="ch4.html#42-待测试的示例代码">
+            
+                    
+                    4.2 待测试的示例代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="ch4.html">
+            
+                <a href="ch4.html#43-第一个测试">
+            
+                    
+                    4.3 第一个测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="ch4.html">
+            
+                <a href="ch4.html#44-再添加一个测试">
+            
+                    
+                    4.4 再添加一个测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="ch4.html">
+            
+                <a href="ch4.html#45-修改测试夹具">
+            
+                    
+                    4.5 修改测试夹具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="ch4.html">
+            
+                <a href="ch4.html#46-探测边界条件">
+            
+                    
+                    4.6 探测边界条件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="ch4.html">
+            
+                <a href="ch4.html#47-测试远不止如此">
+            
+                    
+                    4.7 测试远不止如此
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="ch5.html">
+            
+                <a href="ch5.html">
+            
+                    
+                    第 5 章 介绍重构名录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="ch5.html">
+            
+                <a href="ch5.html#51-重构的记录格式">
+            
+                    
+                    5.1 重构的记录格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="ch5.html">
+            
+                <a href="ch5.html#52-挑选重构的依据">
+            
+                    
+                    5.2 挑选重构的依据
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch6.html">
+            
+                <a href="ch6.html">
+            
+                    
+                    第 6 章 第一组重构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="ch6.html">
+            
+                <a href="ch6.html#61-提炼函数（extract-function）">
+            
+                    
+                    6.1 提炼函数（Extract Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.1.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.1.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：无局部变量">
+            
+                    
+                    范例：无局部变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.1.4" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：有局部变量">
+            
+                    
+                    范例：有局部变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.1.5" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：对局部变量再赋值">
+            
+                    
+                    范例：对局部变量再赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="ch6.html">
+            
+                <a href="ch6.html#62-内联函数（inline-function）">
+            
+                    
+                    6.2 内联函数（Inline Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="ch6.html">
+            
+                <a href="ch6.html#63-提炼变量（extract-variable）">
+            
+                    
+                    6.3 提炼变量（Extract Variable）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.3.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3.4" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：在一个类中">
+            
+                    
+                    范例：在一个类中
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="ch6.html">
+            
+                <a href="ch6.html#64-内联变量（inline-variable）">
+            
+                    
+                    6.4 内联变量（Inline Variable）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.4.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="ch6.html">
+            
+                <a href="ch6.html#65-改变函数声明（change-function-declaration）">
+            
+                    
+                    6.5 改变函数声明（Change Function Declaration）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.5.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.3" data-path="ch6.html">
+            
+                <a href="ch6.html#简单的做法">
+            
+                    
+                    简单的做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.4" data-path="ch6.html">
+            
+                <a href="ch6.html#迁移式做法">
+            
+                    
+                    迁移式做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.5" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：函数改名（简单做法）">
+            
+                    
+                    范例：函数改名（简单做法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.6" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：函数改名（迁移式做法）">
+            
+                    
+                    范例：函数改名（迁移式做法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.7" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：添加参数">
+            
+                    
+                    范例：添加参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.8" data-path="ch6.html">
+            
+                <a href="ch6.html#范例：把参数改为属性">
+            
+                    
+                    范例：把参数改为属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="ch6.html">
+            
+                <a href="ch6.html#66-封装变量（encapsulate-variable）">
+            
+                    
+                    6.6 封装变量（Encapsulate Variable）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.6.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6.4" data-path="ch6.html">
+            
+                <a href="ch6.html#封装值">
+            
+                    
+                    封装值
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="ch6.html">
+            
+                <a href="ch6.html#67-变量改名（rename-variable）">
+            
+                    
+                    6.7 变量改名（Rename Variable）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.7.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7.2" data-path="ch6.html">
+            
+                <a href="ch6.html#机制">
+            
+                    
+                    机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7.4" data-path="ch6.html">
+            
+                <a href="ch6.html#给常量改名">
+            
+                    
+                    给常量改名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="ch6.html">
+            
+                <a href="ch6.html#68-引入参数对象（introduce-parameter-object）">
+            
+                    
+                    6.8 引入参数对象（Introduce Parameter Object）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.8.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="ch6.html">
+            
+                <a href="ch6.html#69-函数组合成类（combine-functions-into-class）">
+            
+                    
+                    6.9 函数组合成类（Combine Functions into Class）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.9.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="ch6.html">
+            
+                <a href="ch6.html#610-函数组合成变换（combine-functions-into-transform）">
+            
+                    
+                    6.10 函数组合成变换（Combine Functions into Transform）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.10.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="ch6.html">
+            
+                <a href="ch6.html#611-拆分阶段（split-phase）">
+            
+                    
+                    6.11 拆分阶段（Split Phase）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.11.1" data-path="ch6.html">
+            
+                <a href="ch6.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11.2" data-path="ch6.html">
+            
+                <a href="ch6.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11.3" data-path="ch6.html">
+            
+                <a href="ch6.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch7.html">
+            
+                <a href="ch7.html">
+            
+                    
+                    第 7 章 封装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="ch7.html">
+            
+                <a href="ch7.html#71-封装记录（encapsulate-record）">
+            
+                    
+                    7.1 封装记录（Encapsulate Record）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.4" data-path="ch7.html">
+            
+                <a href="ch7.html#范例：封装嵌套记录">
+            
+                    
+                    范例：封装嵌套记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="ch7.html">
+            
+                <a href="ch7.html#72-封装集合（encapsulate-collection）">
+            
+                    
+                    7.2 封装集合（Encapsulate Collection）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="ch7.html">
+            
+                <a href="ch7.html#73-以对象取代基本类型（replace-primitive-with-object）">
+            
+                    
+                    7.3 以对象取代基本类型（Replace Primitive with Object）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="ch7.html">
+            
+                <a href="ch7.html#74-以查询取代临时变量（replace-temp-with-query）">
+            
+                    
+                    7.4 以查询取代临时变量（Replace Temp with Query）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="ch7.html">
+            
+                <a href="ch7.html#75-提炼类（extract-class）">
+            
+                    
+                    7.5 提炼类（Extract Class）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.5.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="ch7.html">
+            
+                <a href="ch7.html#76-内联类（inline-class）">
+            
+                    
+                    7.6 内联类（Inline Class）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.6.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="ch7.html">
+            
+                <a href="ch7.html#77-隐藏委托关系（hide-delegate）">
+            
+                    
+                    7.7 隐藏委托关系（Hide Delegate）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.7.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="ch7.html">
+            
+                <a href="ch7.html#78-移除中间人（remove-middle-man）">
+            
+                    
+                    7.8 移除中间人（Remove Middle Man）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.8.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8.3" data-path="ch7.html">
+            
+                <a href="ch7.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="ch7.html">
+            
+                <a href="ch7.html#79-替换算法（substitute-algorithm）">
+            
+                    
+                    7.9 替换算法（Substitute Algorithm）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.9.1" data-path="ch7.html">
+            
+                <a href="ch7.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9.2" data-path="ch7.html">
+            
+                <a href="ch7.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="ch8.html">
+            
+                <a href="ch8.html">
+            
+                    
+                    第 8 章 搬移特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="ch8.html">
+            
+                <a href="ch8.html#81-搬移函数（move-function）">
+            
+                    
+                    8.1 搬移函数（Move Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例：搬移内嵌函数至顶层">
+            
+                    
+                    范例：搬移内嵌函数至顶层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.4" data-path="ch8.html">
+            
+                <a href="ch8.html#范例：在类之间搬移函数">
+            
+                    
+                    范例：在类之间搬移函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="ch8.html">
+            
+                <a href="ch8.html#82-搬移字段（move-field）">
+            
+                    
+                    8.2 搬移字段（Move Field）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.2.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2.4" data-path="ch8.html">
+            
+                <a href="ch8.html#范例：搬移字段到共享对象">
+            
+                    
+                    范例：搬移字段到共享对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="ch8.html">
+            
+                <a href="ch8.html#83-搬移语句到函数（move-statements-into-function）">
+            
+                    
+                    8.3 搬移语句到函数（Move Statements into Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="ch8.html">
+            
+                <a href="ch8.html#84-搬移语句到调用者（move-statements-to-callers）">
+            
+                    
+                    8.4 搬移语句到调用者（Move Statements to Callers）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.4.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="ch8.html">
+            
+                <a href="ch8.html#85-以函数调用取代内联代码（replace-inline-code-with-function-call）">
+            
+                    
+                    8.5 以函数调用取代内联代码（Replace Inline Code with Function Call）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.5.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="ch8.html">
+            
+                <a href="ch8.html#86-移动语句（slide-statements）">
+            
+                    
+                    8.6 移动语句（Slide Statements）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.6.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6.4" data-path="ch8.html">
+            
+                <a href="ch8.html#范例：包含条件逻辑的移动">
+            
+                    
+                    范例：包含条件逻辑的移动
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="ch8.html">
+            
+                <a href="ch8.html#87-拆分循环（split-loop）">
+            
+                    
+                    8.7 拆分循环（Split Loop）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.7.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="ch8.html">
+            
+                <a href="ch8.html#88-以管道取代循环（replace-loop-with-pipeline）">
+            
+                    
+                    8.8 以管道取代循环（Replace Loop with Pipeline）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.8.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8.3" data-path="ch8.html">
+            
+                <a href="ch8.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="ch8.html">
+            
+                <a href="ch8.html#89-移除死代码（remove-dead-code）">
+            
+                    
+                    8.9 移除死代码（Remove Dead Code）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.9.1" data-path="ch8.html">
+            
+                <a href="ch8.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9.2" data-path="ch8.html">
+            
+                <a href="ch8.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="ch9.html">
+            
+                <a href="ch9.html">
+            
+                    
+                    第 9 章 重新组织数据
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="ch9.html">
+            
+                <a href="ch9.html#91-拆分变量（split-variable）">
+            
+                    
+                    9.1 拆分变量（Split Variable）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1.1" data-path="ch9.html">
+            
+                <a href="ch9.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.2" data-path="ch9.html">
+            
+                <a href="ch9.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.3" data-path="ch9.html">
+            
+                <a href="ch9.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.4" data-path="ch9.html">
+            
+                <a href="ch9.html#范例：对输入参数赋值">
+            
+                    
+                    范例：对输入参数赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="ch9.html">
+            
+                <a href="ch9.html#92-字段改名（rename-field）">
+            
+                    
+                    9.2 字段改名（Rename Field）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.2.1" data-path="ch9.html">
+            
+                <a href="ch9.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2.2" data-path="ch9.html">
+            
+                <a href="ch9.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2.3" data-path="ch9.html">
+            
+                <a href="ch9.html#范例：给字段改名">
+            
+                    
+                    范例：给字段改名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="ch9.html">
+            
+                <a href="ch9.html#93-以查询取代派生变量（replace-derived-variable-with-query）">
+            
+                    
+                    9.3 以查询取代派生变量（Replace Derived Variable with Query）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="ch9.html">
+            
+                <a href="ch9.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3.2" data-path="ch9.html">
+            
+                <a href="ch9.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3.3" data-path="ch9.html">
+            
+                <a href="ch9.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3.4" data-path="ch9.html">
+            
+                <a href="ch9.html#范例：不止一个数据来源">
+            
+                    
+                    范例：不止一个数据来源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="ch9.html">
+            
+                <a href="ch9.html#94-将引用对象改为值对象（change-reference-to-value）">
+            
+                    
+                    9.4 将引用对象改为值对象（Change Reference to Value）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.4.1" data-path="ch9.html">
+            
+                <a href="ch9.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4.2" data-path="ch9.html">
+            
+                <a href="ch9.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4.3" data-path="ch9.html">
+            
+                <a href="ch9.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="ch9.html">
+            
+                <a href="ch9.html#95-将值对象改为引用对象（change-value-to-reference）">
+            
+                    
+                    9.5 将值对象改为引用对象（Change Value to Reference）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.5.1" data-path="ch9.html">
+            
+                <a href="ch9.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5.2" data-path="ch9.html">
+            
+                <a href="ch9.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5.3" data-path="ch9.html">
+            
+                <a href="ch9.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="ch10.html">
+            
+                <a href="ch10.html">
+            
+                    
+                    第 10 章 简化条件逻辑
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="ch10.html">
+            
+                <a href="ch10.html#101-分解条件表达式（decompose-conditional）">
+            
+                    
+                    10.1 分解条件表达式（Decompose Conditional）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="ch10.html">
+            
+                <a href="ch10.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="ch10.html">
+            
+                <a href="ch10.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="ch10.html">
+            
+                <a href="ch10.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="ch10.html">
+            
+                <a href="ch10.html#102-合并条件表达式（consolidate-conditional-expression）">
+            
+                    
+                    10.2 合并条件表达式（Consolidate Conditional Expression）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.2.1" data-path="ch10.html">
+            
+                <a href="ch10.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2.2" data-path="ch10.html">
+            
+                <a href="ch10.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2.3" data-path="ch10.html">
+            
+                <a href="ch10.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2.4" data-path="ch10.html">
+            
+                <a href="ch10.html#范例：使用逻辑与">
+            
+                    
+                    范例：使用逻辑与
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="ch10.html">
+            
+                <a href="ch10.html#103-以卫语句取代嵌套条件表达式（replace-nested-conditional-with-guard-clauses）">
+            
+                    
+                    10.3 以卫语句取代嵌套条件表达式（Replace Nested Conditional with Guard Clauses）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.3.1" data-path="ch10.html">
+            
+                <a href="ch10.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3.2" data-path="ch10.html">
+            
+                <a href="ch10.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3.3" data-path="ch10.html">
+            
+                <a href="ch10.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3.4" data-path="ch10.html">
+            
+                <a href="ch10.html#范例：将条件反转">
+            
+                    
+                    范例：将条件反转
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="ch10.html">
+            
+                <a href="ch10.html#104-以多态取代条件表达式（replace-conditional-with-polymorphism）">
+            
+                    
+                    10.4 以多态取代条件表达式（Replace Conditional with Polymorphism）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.4.1" data-path="ch10.html">
+            
+                <a href="ch10.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4.2" data-path="ch10.html">
+            
+                <a href="ch10.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4.3" data-path="ch10.html">
+            
+                <a href="ch10.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4.4" data-path="ch10.html">
+            
+                <a href="ch10.html#范例：用多态处理变体逻辑">
+            
+                    
+                    范例：用多态处理变体逻辑
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="ch10.html">
+            
+                <a href="ch10.html#105-引入特例（introduce-special-case）">
+            
+                    
+                    10.5 引入特例（Introduce Special Case）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.5.1" data-path="ch10.html">
+            
+                <a href="ch10.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5.2" data-path="ch10.html">
+            
+                <a href="ch10.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5.3" data-path="ch10.html">
+            
+                <a href="ch10.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5.4" data-path="ch10.html">
+            
+                <a href="ch10.html#范例：使用对象字面量">
+            
+                    
+                    范例：使用对象字面量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5.5" data-path="ch10.html">
+            
+                <a href="ch10.html#范例：使用变换">
+            
+                    
+                    范例：使用变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="ch10.html">
+            
+                <a href="ch10.html#106-引入断言（introduce-assertion）">
+            
+                    
+                    10.6 引入断言（Introduce Assertion）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.6.1" data-path="ch10.html">
+            
+                <a href="ch10.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6.2" data-path="ch10.html">
+            
+                <a href="ch10.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6.3" data-path="ch10.html">
+            
+                <a href="ch10.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="ch11.html">
+            
+                <a href="ch11.html">
+            
+                    
+                    第 11 章 重构 API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="ch11.html">
+            
+                <a href="ch11.html#111-将查询函数和修改函数分离（separate-query-from-modifier）">
+            
+                    
+                    11.1 将查询函数和修改函数分离（Separate Query from Modifier）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.1.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.1.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="ch11.html">
+            
+                <a href="ch11.html#112-函数参数化（parameterize-function）">
+            
+                    
+                    11.2 函数参数化（Parameterize Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="ch11.html">
+            
+                <a href="ch11.html#113-移除标记参数（remove-flag-argument）">
+            
+                    
+                    11.3 移除标记参数（Remove Flag Argument）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.3.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="ch11.html">
+            
+                <a href="ch11.html#114-保持对象完整（preserve-whole-object）">
+            
+                    
+                    11.4 保持对象完整（Preserve Whole Object）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.4.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4.4" data-path="ch11.html">
+            
+                <a href="ch11.html#范例：换个方式创建新函数">
+            
+                    
+                    范例：换个方式创建新函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="ch11.html">
+            
+                <a href="ch11.html#115-以查询取代参数（replace-parameter-with-query）">
+            
+                    
+                    11.5 以查询取代参数（Replace Parameter with Query）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.5.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="ch11.html">
+            
+                <a href="ch11.html#116-以参数取代查询（replace-query-with-parameter）">
+            
+                    
+                    11.6 以参数取代查询（Replace Query with Parameter）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.6.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.7" data-path="ch11.html">
+            
+                <a href="ch11.html#117-移除设值函数（remove-setting-method）">
+            
+                    
+                    11.7 移除设值函数（Remove Setting Method）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.7.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.7.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.7.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.8" data-path="ch11.html">
+            
+                <a href="ch11.html#118-以工厂函数取代构造函数（replace-constructor-with-factory-function）">
+            
+                    
+                    11.8 以工厂函数取代构造函数（Replace Constructor with Factory Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.8.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.8.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.8.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.9" data-path="ch11.html">
+            
+                <a href="ch11.html#119-以命令取代函数（replace-function-with-command）">
+            
+                    
+                    11.9 以命令取代函数（Replace Function with Command）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.9.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.9.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.9.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.10" data-path="ch11.html">
+            
+                <a href="ch11.html#1110-以函数取代命令（replace-command-with-function）">
+            
+                    
+                    11.10 以函数取代命令（Replace Command with Function）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.10.1" data-path="ch11.html">
+            
+                <a href="ch11.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.10.2" data-path="ch11.html">
+            
+                <a href="ch11.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.10.3" data-path="ch11.html">
+            
+                <a href="ch11.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="ch12.html">
+            
+                <a href="ch12.html">
+            
+                    
+                    第 12 章 处理继承关系
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="ch12.html">
+            
+                <a href="ch12.html#121-函数上移（pull-up-method）">
+            
+                    
+                    12.1 函数上移（Pull Up Method）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.1.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.1.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="ch12.html">
+            
+                <a href="ch12.html#122-字段上移（pull-up-field）">
+            
+                    
+                    12.2 字段上移（Pull Up Field）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.2.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="ch12.html">
+            
+                <a href="ch12.html#123-构造函数本体上移（pull-up-constructor-body）">
+            
+                    
+                    12.3 构造函数本体上移（Pull Up Constructor Body）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.3.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="ch12.html">
+            
+                <a href="ch12.html#124-函数下移（push-down-method）">
+            
+                    
+                    12.4 函数下移（Push Down Method）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.4.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.5" data-path="ch12.html">
+            
+                <a href="ch12.html#125-字段下移（push-down-field）">
+            
+                    
+                    12.5 字段下移（Push Down Field）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.5.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.5.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6" data-path="ch12.html">
+            
+                <a href="ch12.html#126-以子类取代类型码（replace-type-code-with-subclasses）">
+            
+                    
+                    12.6 以子类取代类型码（Replace Type Code with Subclasses）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.6.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6.4" data-path="ch12.html">
+            
+                <a href="ch12.html#范例：使用间接继承">
+            
+                    
+                    范例：使用间接继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.7" data-path="ch12.html">
+            
+                <a href="ch12.html#127-移除子类（remove-subclass）">
+            
+                    
+                    12.7 移除子类（Remove Subclass）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.7.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.7.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.7.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.8" data-path="ch12.html">
+            
+                <a href="ch12.html#128-提炼超类（extract-superclass）">
+            
+                    
+                    12.8 提炼超类（Extract Superclass）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.8.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.8.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.8.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.9" data-path="ch12.html">
+            
+                <a href="ch12.html#129-折叠继承体系（collapse-hierarchy）">
+            
+                    
+                    12.9 折叠继承体系（Collapse Hierarchy）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.9.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.9.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10" data-path="ch12.html">
+            
+                <a href="ch12.html#1210-以委托取代子类（replace-subclass-with-delegate）">
+            
+                    
+                    12.10 以委托取代子类（Replace Subclass with Delegate）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.10.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10.4" data-path="ch12.html">
+            
+                <a href="ch12.html#范例：取代继承体系">
+            
+                    
+                    范例：取代继承体系
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.11" data-path="ch12.html">
+            
+                <a href="ch12.html#1211-以委托取代超类（replace-superclass-with-delegate）">
+            
+                    
+                    12.11 以委托取代超类（Replace Superclass with Delegate）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.11.1" data-path="ch12.html">
+            
+                <a href="ch12.html#动机">
+            
+                    
+                    动机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.11.2" data-path="ch12.html">
+            
+                <a href="ch12.html#做法">
+            
+                    
+                    做法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.11.3" data-path="ch12.html">
+            
+                <a href="ch12.html#范例">
+            
+                    
+                    范例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第 5 章 介绍重构名录</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;-5-&#x7AE0;-&#x4ECB;&#x7ECD;&#x91CD;&#x6784;&#x540D;&#x5F55;"><a name="&#x7B2C;-5-&#x7AE0;-&#x4ECB;&#x7ECD;&#x91CD;&#x6784;&#x540D;&#x5F55;" class="plugin-anchor" href="#&#x7B2C;-5-&#x7AE0;-&#x4ECB;&#x7ECD;&#x91CD;&#x6784;&#x540D;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C; 5 &#x7AE0; &#x4ECB;&#x7ECD;&#x91CD;&#x6784;&#x540D;&#x5F55;</h1>
+<p>&#x672C;&#x4E66;&#x5269;&#x4F59;&#x7684;&#x7BC7;&#x5E45;&#x662F;&#x4E00;&#x4EFD;&#x91CD;&#x6784;&#x7684;&#x540D;&#x5F55;&#x3002;&#x6700;&#x521D;&#x8FD9;&#x4E2A;&#x540D;&#x5F55;&#x53EA;&#x662F;&#x6211;&#x7684;&#x4E2A;&#x4EBA;&#x7B14;&#x8BB0;&#xFF0C;&#x6211;&#x7528;&#x5B83;&#x6765;&#x63D0;&#x793A;&#x81EA;&#x5DF1;&#x5982;&#x4F55;&#x4EE5;&#x5B89;&#x5168;&#x4E14;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x91CD;&#x6784;&#x3002;&#x7136;&#x540E;&#x6211;&#x4E0D;&#x65AD;&#x7CBE;&#x70BC;&#x8FD9;&#x4EFD;&#x540D;&#x5F55;&#xFF0C;&#x5BF9;&#x4E00;&#x4E9B;&#x91CD;&#x6784;&#x7684;&#x6DF1;&#x5165;&#x63A2;&#x7D22;&#x53C8;&#x5F15;&#x51FA;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x3002;&#x5BF9;&#x4E8E;&#x4E0D;&#x592A;&#x5E38;&#x7528;&#x7684;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#xFF0C;&#x6211;&#x8FD8;&#x662F;&#x4F1A;&#x4E0D;&#x65AD;&#x53C2;&#x9605;&#x8FD9;&#x4EFD;&#x540D;&#x5F55;&#x3002;</p>
+<h2 id="51-&#x91CD;&#x6784;&#x7684;&#x8BB0;&#x5F55;&#x683C;&#x5F0F;"><a name="51-&#x91CD;&#x6784;&#x7684;&#x8BB0;&#x5F55;&#x683C;&#x5F0F;" class="plugin-anchor" href="#51-&#x91CD;&#x6784;&#x7684;&#x8BB0;&#x5F55;&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>5.1 &#x91CD;&#x6784;&#x7684;&#x8BB0;&#x5F55;&#x683C;&#x5F0F;</h2>
+<p>&#x4ECB;&#x7ECD;&#x91CD;&#x6784;&#x65F6;&#xFF0C;&#x6211;&#x91C7;&#x7528;&#x4E00;&#x79CD;&#x6807;&#x51C6;&#x683C;&#x5F0F;&#x3002;&#x6BCF;&#x4E2A;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x90FD;&#x6709;&#x5982;&#x4E0B; 5 &#x4E2A;&#x90E8;&#x5206;&#x3002;</p>
+<ul>
+<li>&#x9996;&#x5148;&#x662F;&#x540D;&#x79F0;&#xFF08;name&#xFF09;&#x3002;&#x8981;&#x5EFA;&#x9020;&#x4E00;&#x4E2A;&#x91CD;&#x6784;&#x8BCD;&#x6C47;&#x8868;&#xFF0C;&#x540D;&#x79F0;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x5C06;&#x5728;&#x672C;&#x4E66;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5982;&#x4ECA;&#x91CD;&#x6784;&#x7ECF;&#x5E38;&#x4F1A;&#x6709;&#x591A;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4F1A;&#x540C;&#x65F6;&#x5217;&#x51FA;&#x5E38;&#x89C1;&#x7684;&#x522B;&#x540D;&#x3002;</li>
+<li>&#x540D;&#x79F0;&#x4E4B;&#x540E;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x901F;&#x5199;&#xFF08;sketch&#xFF09;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x4F60;&#x66F4;&#x5FEB;&#x627E;&#x5230;&#x4F60;&#x6240;&#x9700;&#x8981;&#x7684;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x3002;</li>
+<li>&#x52A8;&#x673A;&#xFF08;motivation&#xFF09;&#x4E3A;&#x4F60;&#x4ECB;&#x7ECD;&#x201C;&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x505A;&#x8FD9;&#x4E2A;&#x91CD;&#x6784;&#x201D;&#x548C;&#x201C;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x8BE5;&#x505A;&#x8FD9;&#x4E2A;&#x91CD;&#x6784;&#x201D;&#x3002;</li>
+<li>&#x505A;&#x6CD5;&#xFF08;mechanics&#xFF09;&#x7B80;&#x660E;&#x627C;&#x8981;&#x5730;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x6B64;&#x91CD;&#x6784;&#x3002;</li>
+<li>&#x8303;&#x4F8B;&#xFF08;examples&#xFF09;&#x4EE5;&#x4E00;&#x4E2A;&#x5341;&#x5206;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x8BF4;&#x660E;&#x6B64;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x5982;&#x4F55;&#x8FD0;&#x4F5C;&#x3002;</li>
+</ul>
+<p>&#x901F;&#x5199;&#x90E8;&#x5206;&#x4F1A;&#x4EE5;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x7684;&#x5F62;&#x5F0F;&#x5C55;&#x793A;&#x91CD;&#x6784;&#x5E26;&#x6765;&#x7684;&#x8F6C;&#x53D8;&#x3002;&#x901F;&#x5199;&#x7684;&#x7528;&#x610F;&#x4E0D;&#x662F;&#x89E3;&#x91CA;&#x91CD;&#x6784;&#x7684;&#x7528;&#x9014;&#xFF0C;&#x66F4;&#x4E0D;&#x662F;&#x8BE6;&#x7EC6;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x64CD;&#x4F5C;&#x8FD9;&#x4E2A;&#x91CD;&#x6784;&#xFF1B;&#x4F46;&#x5982;&#x679C;&#x4F60;&#x66FE;&#x7ECF;&#x770B;&#x8FC7;&#x8FD9;&#x4E2A;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#xFF0C;&#x901F;&#x5199;&#x80FD;&#x5E2E;&#x4F60;&#x56DE;&#x5FC6;&#x8D77;&#x5B83;&#x3002;&#x5982;&#x679C;&#x4F60;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x63A5;&#x89E6;&#x5230;&#x8FD9;&#x4E2A;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#xFF0C;&#x53EF;&#x80FD;&#x6700;&#x597D;&#x662F;&#x5148;&#x9605;&#x8BFB;&#x8303;&#x4F8B;&#x90E8;&#x5206;&#x3002;&#x6211;&#x8FD8;&#x7ED9;&#x6BCF;&#x4E2A;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x753B;&#x4E86;&#x4E00;&#x5E45;&#x5C0F;&#x56FE;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x6211;&#x4E5F;&#x4E0D;&#x6307;&#x671B;&#x8FD9;&#x4E9B;&#x5C0F;&#x56FE;&#x80FD;&#x8BF4;&#x6E05;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x53EA;&#x662F;&#x63D0;&#x4F9B;&#x4E00;&#x70B9;&#x56FE;&#x50CF;&#x8BB0;&#x5FC6;&#x7684;&#x7EBF;&#x7D22;&#x3002;</p>
+<p>&#x201C;&#x505A;&#x6CD5;&#x201D;&#x51FA;&#x81EA;&#x6211;&#x81EA;&#x5DF1;&#x7684;&#x7B14;&#x8BB0;&#x3002;&#x8FD9;&#x4E9B;&#x7B14;&#x8BB0;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x6211;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x4E0D;&#x505A;&#x67D0;&#x9879;&#x91CD;&#x6784;&#x4E4B;&#x540E;&#x8FD8;&#x80FD;&#x8BB0;&#x5F97;&#x600E;&#x4E48;&#x505A;&#x3002;&#x5B83;&#x4EEC;&#x4E5F;&#x9887;&#x4E3A;&#x7B80;&#x6D01;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x89E3;&#x91CA;&#x201C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#x90A3;&#x4E48;&#x505A;&#x201D;&#x3002;&#x6211;&#x4F1A;&#x5728;&#x201C;&#x8303;&#x4F8B;&#x201D;&#x4E2D;&#x7ED9;&#x51FA;&#x66F4;&#x591A;&#x89E3;&#x91CA;&#x3002;&#x8FD9;&#x4E48;&#x4E00;&#x6765;&#xFF0C;&#x201C;&#x505A;&#x6CD5;&#x201D;&#x5C31;&#x6210;&#x4E86;&#x7B80;&#x77ED;&#x7684;&#x7B14;&#x8BB0;&#x3002;&#x5982;&#x679C;&#x4F60;&#x77E5;&#x9053;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x91CD;&#x6784;&#xFF0C;&#x4F46;&#x8BB0;&#x4E0D;&#x6E05;&#x5177;&#x4F53;&#x6B65;&#x9AA4;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x201C;&#x505A;&#x6CD5;&#x201D;&#x90E8;&#x5206;&#xFF08;&#x81F3;&#x5C11;&#x6211;&#x662F;&#x8FD9;&#x4E48;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#xFF09;&#xFF1B;&#x5982;&#x679C;&#x4F60;&#x521D;&#x6B21;&#x4F7F;&#x7528;&#x67D0;&#x4E2A;&#x91CD;&#x6784;&#xFF0C;&#x53EF;&#x80FD;&#x53EA;&#x53C2;&#x8003;&#x201C;&#x505A;&#x6CD5;&#x201D;&#x8FD8;&#x4E0D;&#x591F;&#xFF0C;&#x4F60;&#x8FD8;&#x9700;&#x8981;&#x9605;&#x8BFB;&#x201C;&#x8303;&#x4F8B;&#x201D;&#x3002;</p>
+<p>&#x64B0;&#x5199;&#x201C;&#x505A;&#x6CD5;&#x201D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x5C3D;&#x91CF;&#x5C06;&#x91CD;&#x6784;&#x7684;&#x6BCF;&#x4E2A;&#x6B65;&#x9AA4;&#x62C6;&#x5F97;&#x5C3D;&#x53EF;&#x80FD;&#x5C0F;&#x3002;&#x6211;&#x5F3A;&#x8C03;&#x5B89;&#x5168;&#x7684;&#x91CD;&#x6784;&#x65B9;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x8BE5;&#x91C7;&#x7528;&#x975E;&#x5E38;&#x5C0F;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6BCF;&#x4E2A;&#x6B65;&#x9AA4;&#x4E4B;&#x540E;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;&#x771F;&#x6B63;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;&#x6211;&#x901A;&#x5E38;&#x4F1A;&#x91C7;&#x7528;&#x6BD4;&#x8FD9;&#x91CC;&#x4ECB;&#x7ECD;&#x7684;&#x201C;&#x5A74;&#x513F;&#x5B66;&#x6B65;&#x201D;&#x7A0D;&#x5927;&#x4E9B;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x7136;&#x800C;&#x4E00;&#x65E6;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x5C31;&#x4F1A;&#x64A4;&#x9500;&#x4E0A;&#x4E00;&#x6B65;&#xFF0C;&#x6362;&#x7528;&#x6BD4;&#x8F83;&#x5C0F;&#x7684;&#x6B65;&#x9AA4;&#x3002;&#x8FD9;&#x4E9B;&#x6B65;&#x9AA4;&#x8FD8;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x7684;&#x53C2;&#x8003;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x4E5F;&#x6709;&#x68C0;&#x67E5;&#x6E05;&#x5355;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x6211;&#x81EA;&#x5DF1;&#x7ECF;&#x5E38;&#x5FD8;&#x6389;&#x8FD9;&#x4E9B;&#x8BE5;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x7EDD;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x6211;&#x53EA;&#x5217;&#x51FA;&#x4E86;&#x91CD;&#x6784;&#x7684;&#x4E00;&#x5957;&#x505A;&#x6CD5;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x4E00;&#x4E2A;&#x91CD;&#x6784;&#x5E76;&#x975E;&#x53EA;&#x6709;&#x4E00;&#x5957;&#x505A;&#x6CD5;&#x3002;&#x6211;&#x5728;&#x672C;&#x4E66;&#x4E2D;&#x9009;&#x62E9;&#x4ECB;&#x7ECD;&#x8FD9;&#x4E9B;&#x505A;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x90FD;&#x7BA1;&#x7528;&#x3002;&#x7B49;&#x4F60;&#x7ECF;&#x8FC7;&#x7EC3;&#x4E60;&#x83B7;&#x5F97;&#x66F4;&#x591A;&#x91CD;&#x6784;&#x7ECF;&#x9A8C;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x8C03;&#x6574;&#x91CD;&#x6784;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x90A3;&#x5B8C;&#x5168;&#x6CA1;&#x95EE;&#x9898;&#x3002;&#x53EA;&#x8981;&#x7262;&#x8BB0;&#x4E00;&#x70B9;&#xFF1A;&#x5C0F;&#x6B65;&#x524D;&#x8FDB;&#xFF0C;&#x60C5;&#x51B5;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x6B65;&#x5B50;&#x5C31;&#x8981;&#x8D8A;&#x5C0F;&#x3002;</p>
+<p>&#x201C;&#x8303;&#x4F8B;&#x201D;&#x50CF;&#x662F;&#x7B80;&#x5355;&#x800C;&#x6709;&#x8DA3;&#x7684;&#x6559;&#x79D1;&#x4E66;&#x3002;&#x6211;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x8303;&#x4F8B;&#x662F;&#x4E3A;&#x4E86;&#x5E2E;&#x52A9;&#x89E3;&#x91CA;&#x91CD;&#x6784;&#x7684;&#x57FA;&#x672C;&#x8981;&#x7D20;&#xFF0C;&#x6700;&#x5927;&#x9650;&#x5EA6;&#x5730;&#x907F;&#x514D;&#x5176;&#x4ED6;&#x679D;&#x8282;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5E0C;&#x671B;&#x4F60;&#x80FD;&#x539F;&#x8C05;&#x5176;&#x4E2D;&#x7684;&#x7B80;&#x5316;&#x5DE5;&#x4F5C;&#xFF08;&#x5B83;&#x4EEC;&#x5F53;&#x7136;&#x4E0D;&#x662F;&#x4F18;&#x79C0;&#x7684;&#x4E1A;&#x52A1;&#x5EFA;&#x6A21;&#x4F8B;&#x5B50;&#xFF09;&#x3002;&#x4E0D;&#x8FC7;&#x6211;&#x6562;&#x80AF;&#x5B9A;&#xFF0C;&#x4F60;&#x4E00;&#x5B9A;&#x80FD;&#x5728;&#x90A3;&#x4E9B;&#x66F4;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#x4E2D;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;&#x67D0;&#x4E9B;&#x5341;&#x5206;&#x7B80;&#x5355;&#x7684;&#x91CD;&#x6784;&#x5E72;&#x8106;&#x6CA1;&#x6709;&#x8303;&#x4F8B;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x89C9;&#x5F97;&#x4E3A;&#x5B83;&#x4EEC;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x8303;&#x4F8B;&#x4E0D;&#x4F1A;&#x6709;&#x591A;&#x5927;&#x610F;&#x4E49;&#x3002;</p>
+<p>&#x66F4;&#x660E;&#x786E;&#x5730;&#x8BF4;&#xFF0C;&#x52A0;&#x4E0A;&#x8303;&#x4F8B;&#x4EC5;&#x4EC5;&#x662F;&#x4E3A;&#x4E86;&#x9610;&#x91CA;&#x5F53;&#x65F6;&#x8BA8;&#x8BBA;&#x7684;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x3002;&#x901A;&#x5E38;&#x90A3;&#x4E9B;&#x4EE3;&#x7801;&#x6700;&#x7EC8;&#x4ECD;&#x6709;&#x5176;&#x4ED6;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x4FEE;&#x6B63;&#x90A3;&#x4E9B;&#x95EE;&#x9898;&#x9700;&#x8981;&#x7528;&#x5230;&#x5176;&#x4ED6;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x3002;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x6570;&#x4E2A;&#x91CD;&#x6784;&#x7ECF;&#x5E38;&#x88AB;&#x4E00;&#x5E76;&#x8FD0;&#x7528;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4F1A;&#x628A;&#x8303;&#x4F8B;&#x5E26;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x91CD;&#x6784;&#x4E2D;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x3002;&#x5927;&#x90E8;&#x5206;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x4E2A;&#x8303;&#x4F8B;&#x53EA;&#x4E3A;&#x4E00;&#x9879;&#x91CD;&#x6784;&#x800C;&#x8BBE;&#x8BA1;&#xFF0C;&#x8FD9;&#x4E48;&#x505A;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x6BCF;&#x4E00;&#x9879;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x81EA;&#x6210;&#x4E00;&#x4F53;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4EFD;&#x91CD;&#x6784;&#x540D;&#x5F55;&#x7684;&#x9996;&#x8981;&#x76EE;&#x7684;&#x8FD8;&#x662F;&#x4F5C;&#x4E3A;&#x53C2;&#x8003;&#x5DE5;&#x5177;&#x3002;</p>
+<p>&#x4FEE;&#x6539;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x80FD;&#x88AB;&#x57CB;&#x6CA1;&#x5728;&#x672A;&#x4FEE;&#x6539;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x96BE;&#x4EE5;&#x4E00;&#x773C;&#x770B;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x989C;&#x8272;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4F46;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x6240;&#x6709;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x4EE3;&#x7801;&#x592A;&#x591A;&#xFF0C;&#x5168;&#x90FD;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x53CD;&#x800C;&#x4E0D;&#x80FD;&#x7A81;&#x663E;&#x91CD;&#x70B9;&#x3002;</p>
+<h2 id="52-&#x6311;&#x9009;&#x91CD;&#x6784;&#x7684;&#x4F9D;&#x636E;"><a name="52-&#x6311;&#x9009;&#x91CD;&#x6784;&#x7684;&#x4F9D;&#x636E;" class="plugin-anchor" href="#52-&#x6311;&#x9009;&#x91CD;&#x6784;&#x7684;&#x4F9D;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>5.2 &#x6311;&#x9009;&#x91CD;&#x6784;&#x7684;&#x4F9D;&#x636E;</h2>
+<p>&#x8FD9;&#x4E0D;&#x662F;&#x4E00;&#x4EFD;&#x5DE8;&#x7EC6;&#x9761;&#x9057;&#x7684;&#x91CD;&#x6784;&#x540D;&#x5F55;&#x3002;&#x6211;&#x53EA;&#x662F;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E9B;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#x6700;&#x503C;&#x5F97;&#x88AB;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#x3002;&#x4E4B;&#x6240;&#x4EE5;&#x8BF4;&#x5B83;&#x4EEC;&#x201C;&#x6700;&#x503C;&#x5F97;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x5F88;&#x5E38;&#x7528;&#x7684;&#x91CD;&#x6784;&#x624B;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x503C;&#x5F97;&#x7ED9;&#x5B83;&#x4EEC;&#x547D;&#x540D;&#x548C;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;&#xFF1A;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x505A;&#x6CD5;&#x5F88;&#x6709;&#x610F;&#x601D;&#xFF0C;&#x80FD;&#x5E2E;&#x52A9;&#x8BFB;&#x8005;&#x63D0;&#x9AD8;&#x6574;&#x4F53;&#x91CD;&#x6784;&#x6280;&#x80FD;&#x6C34;&#x5E73;&#xFF0C;&#x53E6;&#x5916;&#x4E00;&#x4E9B;&#x5219;&#x5BF9;&#x4E8E;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;&#x8D28;&#x91CF;&#x7684;&#x63D0;&#x5347;&#x6548;&#x679C;&#x663E;&#x8457;&#x3002;</p>
+<p>&#x6709;&#x4E9B;&#x91CD;&#x6784;&#x6CA1;&#x6709;&#x8FDB;&#x5165;&#x8FD9;&#x4EFD;&#x540D;&#x5F55;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x592A;&#x5C0F;&#x3001;&#x592A;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x6CA1;&#x5FC5;&#x8981;&#x591A;&#x52A0;&#x8D58;&#x8FF0;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x64B0;&#x5199;&#x7B2C; 1 &#x7248;&#x65F6;&#x6211;&#x5C31;&#x66FE;&#x7ECF;&#x8003;&#x8651;&#x8FC7;&#x79FB;&#x52A8;&#x8BED;&#x53E5;&#xFF08;223&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x91CD;&#x6784;&#x6211;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x6211;&#x89C9;&#x5F97;&#x6CA1;&#x5FC5;&#x8981;&#x5C06;&#x5B83;&#x653E;&#x8FDB;&#x540D;&#x5F55;&#x91CC;&#xFF08;&#x663E;&#x7136;&#x6211;&#x5728;&#x5199;&#x7B2C; 2 &#x7248;&#x7684;&#x65F6;&#x5019;&#x6539;&#x53D8;&#x4E86;&#x60F3;&#x6CD5;&#xFF09;&#x3002;&#x4EE5;&#x540E;&#x4E5F;&#x8BB8;&#x8FD8;&#x6709;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x91CD;&#x6784;&#x4F1A;&#x88AB;&#x52A0;&#x8FDB;&#x4E66;&#x91CC;&#xFF0C;&#x4E0D;&#x8FC7;&#x90A3;&#x8981;&#x770B;&#x6211;&#x6295;&#x5165;&#x591A;&#x5C11;&#x7CBE;&#x529B;&#x5728;&#x65B0;&#x589E;&#x91CD;&#x6784;&#x4E0A;&#x4E86;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x6CA1;&#x6709;&#x8FDB;&#x5165;&#x540D;&#x5F55;&#x7684;&#x91CD;&#x6784;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x6211;&#x7528;&#x5F97;&#x5F88;&#x5C11;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x4E0E;&#x5176;&#x4ED6;&#x91CD;&#x6784;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#x3002;&#x672C;&#x4E66;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x91CD;&#x6784;&#xFF0C;&#x903B;&#x8F91;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x53CD;&#x5411;&#x7684;&#x91CD;&#x6784;&#x3002;&#x4F46;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x628A;&#x6240;&#x6709;&#x53CD;&#x5411;&#x91CD;&#x6784;&#x90FD;&#x5199;&#x4E0B;&#x6765;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x53D1;&#x73B0;&#x5F88;&#x591A;&#x53CD;&#x5411;&#x91CD;&#x6784;&#x6CA1;&#x592A;&#x5927;&#x610F;&#x601D;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5C01;&#x88C5;&#x53D8;&#x91CF;&#xFF08;132&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x7528;&#x53C8;&#x597D;&#x7528;&#x7684;&#x91CD;&#x6784;&#xFF0C;&#x4F46;&#x5B83;&#x7684;&#x53CD;&#x5411;&#x91CD;&#x6784;&#x6211;&#x51E0;&#x4E4E;&#x4ECE;&#x6765;&#x4E0D;&#x4F1A;&#x505A;&#xFF08;&#x800C;&#x4E14;&#x5C31;&#x7B97;&#x8981;&#x505A;&#x4E5F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x89C9;&#x5F97;&#x6CA1;&#x5FC5;&#x8981;&#x5C06;&#x8FD9;&#x4E2A;&#x53CD;&#x5411;&#x91CD;&#x6784;&#x653E;&#x8FDB;&#x540D;&#x5F55;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch4.html#47-测试远不止如此" class="navigation navigation-prev " aria-label="Previous page: 4.7 测试远不止如此">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch5.html#51-重构的记录格式" class="navigation navigation-next " aria-label="Next page: 5.1 重构的记录格式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第 5 章 介绍重构名录","level":"1.7","depth":1,"next":{"title":"5.1 重构的记录格式","level":"1.7.1","depth":2,"anchor":"#51-重构的记录格式","path":"docs/ch5.md","ref":"./docs/ch5.md#51-重构的记录格式","articles":[]},"previous":{"title":"4.7 测试远不止如此","level":"1.6.7","depth":2,"anchor":"#47-测试远不止如此","path":"docs/ch4.md","ref":"./docs/ch4.md#47-测试远不止如此","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","anchors","toggle-chapters","-lunr","-search","search-pro"],"styles":{"website":"assets/website.css"},"pluginsConfig":{"prism":{},"anchors":{},"toggle-chapters":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"重构: 改善既有代码的设计","language":"zh","gitbook":"3.2.3"},"file":{"path":"docs/ch5.md","mtime":"2021-01-10T10:41:18.895Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-10T16:16:01.682Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
