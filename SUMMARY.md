@@ -1,0 +1,15 @@
+# SUMMARY
+
+* [简介](./README.md)
+* [第1章 重构，第一个示例](./docs/ch1.md)
+* [第2章 重构的原则](./docs/ch2.md)
+* [第3章 代码的坏味道](./docs/ch3.md)
+* [第4章 构筑测试体系](./docs/ch4.md)
+* [第5章 介绍重构名录](./docs/ch5.md)
+* [第6章 第一组重构](./docs/ch6.md)
+* [第7章 封装](./docs/ch7.md)
+* [第8章 搬移特性](./docs/ch8.md)
+* [第9章 重新组织数据](./docs/ch9.md)
+* [第10章 简化条件逻辑](./docs/ch10.md)
+* [第11章 重构 API](./docs/ch11.md)
+* [第12章 处理继承关系](./docs/ch12.md)

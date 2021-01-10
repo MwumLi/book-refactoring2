@@ -1,0 +1,26 @@
+{
+  "name": "book-refactoring2",
+  "version": "1.0.0",
+  "description": "重构:改善既有代码的设计",
+  "private": true,
+  "scripts": {
+    "serve": "gitbook serve",
+    "build": "gitbook build",
+    "pdf": "gitbook pdf . ./ebook/refactoring2.pdf",
+    "epub": "gitbook epub . ./ebook/refactoring2.epub",
+    "mobi": "gitbook mobi . ./ebook/refactoring2.mobi",
+    "preebook": "mkdir ebook",
+    "ebook": "npm run pdf && npm run epub && npm run mobi"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-highlight": "^2.0.3",
+    "gitbook-plugin-prism": "^2.4.0"
+  },
+  "engines": {
+    "node": ">=8.11.1 < 11.15.0"
+  }
+}

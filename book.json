@@ -1,0 +1,8 @@
+{
+  "title": "重构: 改善既有代码的设计",
+  "language": "zh",
+  "plugins": ["prism", "-highlight"],
+  "styles" : {
+    "website": "assets/website.css"
+  }
+}
