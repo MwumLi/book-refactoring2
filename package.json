@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-highlight": "^2.0.3",
+    "gitbook-plugin-anchors": "^0.7.1",
     "gitbook-plugin-prism": "^2.4.0"
   },
   "engines": {
