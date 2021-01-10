@@ -2,6 +2,10 @@
 
 《重构 改善既有代码的设计第二版》中文版  
 
+## 资源获取  
+
+* 在线阅读: <https://book-refactoring2.ifmicro.com>  
+* 电子书: [pdf](https://book-refactoring2.ifmicro.com/ebook/refactoring2.pdf), [epub](https://book-refactoring2.ifmicro.com/ebook/refactoring2.pdf), [mobi](https://book-refactoring2.ifmicro.com/ebook/refactoring2.pdf)  
 ## 构建自己的站点/电子书  
 
 ### 准备
