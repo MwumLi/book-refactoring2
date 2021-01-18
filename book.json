@@ -2,7 +2,7 @@
   "gitbook": "3.2.3",
   "title": "重构: 改善既有代码的设计",
   "language": "zh",
-  "plugins": ["prism", "-highlight", "anchors", "toggle-chapters", "-lunr", "-search", "search-pro", "code"],
+  "plugins": ["prism", "-highlight", "anchors", "toggle-chapters", "-lunr", "-search", "search-pro", "code", "pageview-count", "back-to-top-button"],
   "styles" : {
     "website": "assets/website.css"
   },
