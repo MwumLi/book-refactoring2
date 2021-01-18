@@ -12,7 +12,7 @@
     "preebook": "mkdir -p ebook && rm -rfv ebook/*",
     "ebook": "npm run pdf && npm run epub && npm run mobi",
     "predeploy": "npm run build && cp CNAME ./_book/ && npm run ebook && mv ebook ./_book/",
-    "deploy": "gh-pages -d _site"
+    "deploy": "gh-pages -d _book"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,9 @@
     "gh-pages": "^3.1.0",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-back-to-top-button": "^0.1.4",
+    "gitbook-plugin-code": "^0.1.0",
+    "gitbook-plugin-pageview-count": "^1.0.1",
     "gitbook-plugin-prism": "^2.4.0",
     "gitbook-plugin-search-pro": "^2.0.2",
     "gitbook-plugin-toggle-chapters": "0.0.3"

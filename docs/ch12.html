@@ -33,6 +33,18 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
@@ -82,7 +94,31 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://github.com/MwumLi/book-refactoring2" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://book-refactoring2.ifmicro.com/ebook/refactoring2.pdf" target="_blank" class="custom-link">pdf</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://book-refactoring2.ifmicro.com/ebook/refactoring2.epub" target="_blank" class="custom-link">epub</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://book-refactoring2.ifmicro.com/ebook/refactoring2.mobi" target="_blank" class="custom-link">mobi</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -5373,7 +5409,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">get</span> <span class="token function">isPrivileged</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_grade <span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">4</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_grade <span class="token operator">&gt;</span><span class="token number">4</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>&#x8FD9;&#x91CC;&#x6211;&#x65E0;&#x6CD5;&#x7B80;&#x5355;&#x5730;&#x63D0;&#x5347; isPrivileged &#x51FD;&#x6570;&#x81F3;&#x8D85;&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A;&#x8C03;&#x7528;&#x5B83;&#x4E4B;&#x524D;&#x9700;&#x8981;&#x5148;&#x4E3A; grade &#x5B57;&#x6BB5;&#x8D4B;&#x503C;&#xFF0C;&#x800C;&#x8BE5;&#x5B57;&#x6BB5;&#x53EA;&#x80FD;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
@@ -5734,7 +5770,7 @@
 </code></pre>
 <p>&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x5C31;&#x5E72;&#x8FD9;&#x70B9;&#x513F;&#x4E8B;&#xFF0C;&#x90A3;&#x771F;&#x7684;&#x6CA1;&#x5FC5;&#x8981;&#x5B58;&#x5728;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x5728;&#x79FB;&#x9664;&#x5B50;&#x7C7B;&#x4E4B;&#x524D;&#xFF0C;&#x901A;&#x5E38;&#x6709;&#x5FC5;&#x8981;&#x68C0;&#x67E5;&#x4F7F;&#x7528;&#x65B9;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x6709;&#x4F9D;&#x8D56;&#x4E8E;&#x7279;&#x5B9A;&#x5B50;&#x7C7B;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x884C;&#x4E3A;&#x9700;&#x8981;&#x88AB;&#x642C;&#x79FB;&#x5230;&#x5B50;&#x7C7B;&#x4E2D;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x91CC;&#xFF0C;&#x6211;&#x627E;&#x5230;&#x4E00;&#x4E9B;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x57FA;&#x4E8E;&#x5B50;&#x7C7B;&#x7684;&#x7C7B;&#x578B;&#x505A;&#x5224;&#x65AD;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E5F;&#x4E0D;&#x8DB3;&#x4EE5;&#x6210;&#x4E3A;&#x4FDD;&#x7559;&#x5B50;&#x7C7B;&#x7684;&#x7406;&#x7531;&#x3002;</p>
 <h4 id="&#x5BA2;&#x6237;&#x7AEF;"><a name="&#x5BA2;&#x6237;&#x7AEF;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;...</h4>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> numberOfMales <span class="token operator">=</span> people<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>p <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> p <span class="token keyword">instanceof</span> <span class="token class-name">Male</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> numberOfMales <span class="token operator">=</span> people<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">p</span> <span class="token operator">=&gt;</span> p <span class="token keyword">instanceof</span> <span class="token class-name">Male</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 </code></pre>
 <p>&#x6BCF;&#x5F53;&#x60F3;&#x8981;&#x6539;&#x53D8;&#x67D0;&#x4E2A;&#x4E1C;&#x897F;&#x7684;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x65F6;&#xFF0C;&#x6211;&#x4F1A;&#x5148;&#x5C06;&#x5F53;&#x4E0B;&#x7684;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x4ECE;&#x800C;&#x5C3D;&#x91CF;&#x51CF;&#x5C0F;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x5BF9;&#x4E8E;&#x201C;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#x201D;&#x800C;&#x8A00;&#xFF0C;&#x5C01;&#x88C5;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x4EE5;&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x53D6;&#x4EE3;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;334&#xFF09;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5B9E;&#x73B0;&#x5DE5;&#x5382;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p>
 <p>&#x6700;&#x76F4;&#x63A5;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4E3A;&#x6BCF;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5206;&#x522B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x3002;</p>
@@ -5751,7 +5787,7 @@
 <p>&#x867D;&#x7136;&#x8FD9;&#x662F;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x4F46;&#x8FD9;&#x6837;&#x7684;&#x5BF9;&#x8C61;&#x7ECF;&#x5E38;&#x662F;&#x4ECE;&#x8F93;&#x5165;&#x6E90;&#x52A0;&#x8F7D;&#x51FA;&#x6765;&#xFF0C;&#x76F4;&#x63A5;&#x6839;&#x636E;&#x6027;&#x522B;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x3002;</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">loadFromInput</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
- data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>aRecord <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token punctuation">{</span>
+ data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">aRecord</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> p<span class="token punctuation">;</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>aRecord<span class="token punctuation">.</span>gender<span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token keyword">case</span> <span class="token string">&apos;M&apos;</span><span class="token operator">:</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Male</span><span class="token punctuation">(</span>aRecord<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
@@ -5775,7 +5811,7 @@
 <span class="token punctuation">}</span>
 <span class="token keyword">function</span> <span class="token function">loadFromInput</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
- data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>aRecord <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token punctuation">{</span>
+ data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">aRecord</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">createPerson</span><span class="token punctuation">(</span>aRecord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
@@ -5795,12 +5831,12 @@
 </code></pre>
 <p>&#x518D;&#x7528;&#x4EE5;&#x7BA1;&#x9053;&#x53D6;&#x4EE3;&#x5FAA;&#x73AF;&#xFF08;231&#xFF09;&#x7B80;&#x5316; loadFromInput &#x51FD;&#x6570;&#xFF1A;</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">loadFromInput</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>aRecord <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token function">createPerson</span><span class="token punctuation">(</span>aRecord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">aRecord</span> <span class="token operator">=&gt;</span> <span class="token function">createPerson</span><span class="token punctuation">(</span>aRecord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x5C01;&#x88C5;&#x4E86;&#x5B50;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x903B;&#x8F91;&#xFF0C;&#x4F46;&#x4EE3;&#x7801;&#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x5904;&#x7528;&#x5230; instanceof &#x8FD0;&#x7B97;&#x7B26;&#x2014;&#x2014;&#x8FD9;&#x4ECE;&#x6765;&#x4E0D;&#x4F1A;&#x662F;&#x4EC0;&#x4E48;&#x597D;&#x5473;&#x9053;&#x3002;&#x6211;&#x7528;&#x63D0;&#x70BC;&#x51FD;&#x6570;&#xFF08;106&#xFF09;&#x628A;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x903B;&#x8F91;&#x63D0;&#x70BC;&#x51FA;&#x6765;&#x3002;</p>
 <h4 id="&#x5BA2;&#x6237;&#x7AEF;"><a name="&#x5BA2;&#x6237;&#x7AEF;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;...</h4>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> numberOfMales <span class="token operator">=</span> people<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>p <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token function">isMale</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> numberOfMales <span class="token operator">=</span> people<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">p</span> <span class="token operator">=&gt;</span> <span class="token function">isMale</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">isMale</span><span class="token punctuation">(</span><span class="token parameter">aPerson</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> aPerson <span class="token keyword">instanceof</span> <span class="token class-name">Male</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 </code></pre>
@@ -5809,7 +5845,7 @@
 <pre class="language-"><code class="lang-js"><span class="token keyword">get</span> <span class="token function">isMale</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Male</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 </code></pre>
 <h4 id="&#x5BA2;&#x6237;&#x7AEF;"><a name="&#x5BA2;&#x6237;&#x7AEF;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;...</h4>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> numberOfMales <span class="token operator">=</span> people<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>p <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> p<span class="token punctuation">.</span>isMale<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> numberOfMales <span class="token operator">=</span> people<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">p</span> <span class="token operator">=&gt;</span> p<span class="token punctuation">.</span>isMale<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 </code></pre>
 <p>&#x91CD;&#x6784;&#x5230;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x6240;&#x6709;&#x4E0E;&#x5B50;&#x7C7B;&#x76F8;&#x5173;&#x7684;&#x77E5;&#x8BC6;&#x90FD;&#x5DF2;&#x7ECF;&#x5B89;&#x5168;&#x5730;&#x5305;&#x88C5;&#x5728;&#x8D85;&#x7C7B;&#x548C;&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x4E2D;&#x3002;&#xFF08;&#x5BF9;&#x4E8E;&#x201C;&#x8D85;&#x7C7B;&#x5F15;&#x7528;&#x5B50;&#x7C7B;&#x201D;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4F1A;&#x5F88;&#x8B66;&#x60D5;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7528;&#x4E0D;&#x4E86;&#x4E00;&#x676F;&#x8336;&#x7684;&#x5DE5;&#x592B;&#x5C31;&#x4F1A;&#x88AB;&#x5E72;&#x6389;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x4E0D;&#x7528;&#x592A;&#x62C5;&#x5FC3;&#x3002;&#xFF09;</p>
 <p>&#x73B0;&#x5728;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x6765;&#x8868;&#x793A;&#x5B50;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#x3002;&#x65E2;&#x7136;&#x6709;&#x6765;&#x81EA;&#x522B;&#x5904;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x4EE3;&#x7801;&#xFF0C;&#x76F4;&#x63A5;&#x7528;&#x5B83;&#x4E5F;&#x65E0;&#x59A8;&#x3002;</p>
@@ -5934,8 +5970,8 @@
 
  <span class="token keyword">get</span> <span class="token function">totalMonthlyCost</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>staff
-   <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> e<span class="token punctuation">.</span>monthlyCost<span class="token punctuation">)</span>
-   <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sum<span class="token punctuation">,</span> cost<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> sum <span class="token operator">+</span> cost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=&gt;</span> e<span class="token punctuation">.</span>monthlyCost<span class="token punctuation">)</span>
+   <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">sum<span class="token punctuation">,</span> cost</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> sum <span class="token operator">+</span> cost<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
  <span class="token keyword">get</span> <span class="token function">headCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>staff<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
@@ -6362,7 +6398,7 @@
  <span class="token punctuation">}</span>
 
  <span class="token keyword">get</span> <span class="token function">plumage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;scorched&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;scorched&quot;</span><span class="token punctuation">;</span>
   <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_plumage <span class="token operator">||</span> <span class="token string">&quot;beautiful&quot;</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
  <span class="token keyword">get</span> <span class="token function">airSpeedVelocity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -6500,7 +6536,7 @@
 </code></pre>
 <h4 id="class-norwegianblueparrotdelegate"><a name="class-norwegianblueparrotdelegate" class="plugin-anchor" href="#class-norwegianblueparrotdelegate"><i class="fa fa-link" aria-hidden="true"></i></a>class NorwegianBlueParrotDelegate...</h4>
 <pre class="language-"><code class="lang-js"><span class="token keyword">get</span> <span class="token function">plumage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
- <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;scorched&quot;</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;scorched&quot;</span><span class="token punctuation">;</span>
  <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_bird<span class="token punctuation">.</span>_plumage <span class="token operator">||</span> <span class="token string">&quot;beautiful&quot;</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
@@ -6671,7 +6707,7 @@
   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_isNailed<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
  <span class="token keyword">get</span> <span class="token function">plumage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;scorched&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_voltage <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;scorched&quot;</span><span class="token punctuation">;</span>
   <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_bird<span class="token punctuation">.</span>_plumage <span class="token operator">||</span> <span class="token string">&quot;beautiful&quot;</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -6727,7 +6763,7 @@
 
 <span class="token function">needsCleaning</span><span class="token punctuation">(</span><span class="token parameter">targetDate</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">const</span> threshold <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasTag</span><span class="token punctuation">(</span><span class="token string">&quot;revered&quot;</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">700</span> <span class="token operator">:</span> <span class="token number">1500</span><span class="token punctuation">;</span>
- <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">daysSinceLastCleaning</span><span class="token punctuation">(</span>targetDate<span class="token punctuation">)</span> <span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> threshold <span class="token punctuation">;</span>
+ <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">daysSinceLastCleaning</span><span class="token punctuation">(</span>targetDate<span class="token punctuation">)</span> <span class="token operator">&gt;</span> threshold <span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token function">daysSinceLastCleaning</span><span class="token punctuation">(</span><span class="token parameter">targetDate</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_lastCleaned<span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>targetDate<span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span><span class="token constant">DAYS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -6774,7 +6810,7 @@
 <p>&#x5F53;&#x524D; Scroll &#x5BF9;&#x8C61;&#x662F;&#x4ECE;&#x4E00;&#x4E2A;&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;&#x4E2D;&#x52A0;&#x8F7D;&#x7684;&#x3002;</p>
 <h4 id="&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;"><a name="&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;" class="plugin-anchor" href="#&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;...</h4>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> scrolls <span class="token operator">=</span> aDocument
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>record <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token keyword">new</span> <span class="token class-name">Scroll</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">record</span> <span class="token operator">=&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Scroll</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
               record<span class="token punctuation">.</span>catalogData<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
               record<span class="token punctuation">.</span>catalogData<span class="token punctuation">.</span>tags<span class="token punctuation">,</span>
               LocalDate<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>lastCleaned<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -6782,7 +6818,7 @@
 <p>&#x5C06;&#x503C;&#x5BF9;&#x8C61;&#x6539;&#x4E3A;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#xFF08;256&#xFF09;&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#x662F;&#x8981;&#x627E;&#x5230;&#x6216;&#x8005;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4ED3;&#x5E93;&#x5BF9;&#x8C61;&#xFF08;repository&#xFF09;&#x3002;&#x6211;&#x53D1;&#x73B0;&#x6709;&#x4E00;&#x4E2A;&#x4ED3;&#x5E93;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x5BFC;&#x5165;&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4ED3;&#x5E93;&#x5BF9;&#x8C61;&#x8D1F;&#x8D23;&#x63D0;&#x4F9B; CatalogItem &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x7528; ID &#x4F5C;&#x4E3A;&#x7D22;&#x5F15;&#x3002;&#x6211;&#x7684;&#x4E0B;&#x4E00;&#x9879;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x8981;&#x60F3;&#x529E;&#x6CD5;&#x628A;&#x8FD9;&#x4E2A; ID &#x503C;&#x653E;&#x8FDB; Scroll &#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x8FD8;&#x597D;&#xFF0C;&#x8F93;&#x5165;&#x6570;&#x636E;&#x4E2D;&#x6709;&#x8FD9;&#x4E2A;&#x503C;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x88AB;&#x65E0;&#x89C6;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#x7684;&#x65F6;&#x5019;&#x7528;&#x4E0D;&#x7740;&#x3002;&#x628A;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x90FD;&#x7406;&#x6E05;&#x695A;&#xFF0C;&#x6211;&#x5C31;&#x53EF;&#x4EE5;&#x8FD0;&#x7528;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x58F0;&#x660E;&#xFF08;124&#xFF09;&#xFF0C;&#x628A;&#x6574;&#x4E2A;&#x76EE;&#x5F55;&#x5BF9;&#x8C61;&#x4EE5;&#x53CA;&#x76EE;&#x5F55;&#x9879;&#x7684; ID &#x90FD;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9; Scroll &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</p>
 <h4 id="&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;"><a name="&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;" class="plugin-anchor" href="#&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;...</h4>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> scrolls <span class="token operator">=</span> aDocument
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>record <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token keyword">new</span> <span class="token class-name">Scroll</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">record</span> <span class="token operator">=&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Scroll</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
               record<span class="token punctuation">.</span>catalogData<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
               record<span class="token punctuation">.</span>catalogData<span class="token punctuation">.</span>tags<span class="token punctuation">,</span>
               LocalDate<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>lastCleaned<span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -6807,7 +6843,7 @@
 <p>Scroll &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x4F20;&#x5165; title &#x548C; tags &#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x7528;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x58F0;&#x660E;&#xFF08;124&#xFF09;&#x628A;&#x5B83;&#x4EEC;&#x53BB;&#x6389;&#x3002;</p>
 <h4 id="&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;"><a name="&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;" class="plugin-anchor" href="#&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;...</h4>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> scrolls <span class="token operator">=</span> aDocument
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>record <span class="token operator">=</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token keyword">new</span> <span class="token class-name">Scroll</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">record</span> <span class="token operator">=&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Scroll</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
               record<span class="token punctuation">.</span>catalogData<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
               record<span class="token punctuation">.</span>catalogData<span class="token punctuation">.</span>tags<span class="token punctuation">,</span>
               LocalDate<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span>lastCleaned<span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -6864,7 +6900,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第 12 章 处理继承关系","level":"1.14","depth":1,"next":{"title":"12.1 函数上移（Pull Up Method）","level":"1.14.1","depth":2,"anchor":"#121-函数上移（pull-up-method）","path":"docs/ch12.md","ref":"./docs/ch12.md#121-函数上移（pull-up-method）","articles":[{"title":"动机","level":"1.14.1.1","depth":3,"anchor":"#动机","path":"docs/ch12.md","ref":"./docs/ch12.md#动机","articles":[]},{"title":"做法","level":"1.14.1.2","depth":3,"anchor":"#做法","path":"docs/ch12.md","ref":"./docs/ch12.md#做法","articles":[]},{"title":"范例","level":"1.14.1.3","depth":3,"anchor":"#范例","path":"docs/ch12.md","ref":"./docs/ch12.md#范例","articles":[]}]},"previous":{"title":"范例","level":"1.13.10.3","depth":3,"anchor":"#范例","path":"docs/ch11.md","ref":"./docs/ch11.md#范例","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","anchors","toggle-chapters","-lunr","-search","search-pro"],"styles":{"website":"assets/website.css"},"pluginsConfig":{"prism":{},"anchors":{},"toggle-chapters":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"重构: 改善既有代码的设计","language":"zh","gitbook":"3.2.3"},"file":{"path":"docs/ch12.md","mtime":"2021-01-10T10:41:18.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-10T16:16:01.682Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第 12 章 处理继承关系","level":"1.14","depth":1,"next":{"title":"12.1 函数上移（Pull Up Method）","level":"1.14.1","depth":2,"anchor":"#121-函数上移（pull-up-method）","path":"docs/ch12.md","ref":"./docs/ch12.md#121-函数上移（pull-up-method）","articles":[{"title":"动机","level":"1.14.1.1","depth":3,"anchor":"#动机","path":"docs/ch12.md","ref":"./docs/ch12.md#动机","articles":[]},{"title":"做法","level":"1.14.1.2","depth":3,"anchor":"#做法","path":"docs/ch12.md","ref":"./docs/ch12.md#做法","articles":[]},{"title":"范例","level":"1.14.1.3","depth":3,"anchor":"#范例","path":"docs/ch12.md","ref":"./docs/ch12.md#范例","articles":[]}]},"previous":{"title":"范例","level":"1.13.10.3","depth":3,"anchor":"#范例","path":"docs/ch11.md","ref":"./docs/ch11.md#范例","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","anchors","toggle-chapters","-lunr","-search","search-pro","code","pageview-count","back-to-top-button","livereload"],"styles":{"website":"assets/website.css"},"pluginsConfig":{"prism":{},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"重构: 改善既有代码的设计","language":"zh","links":{"sidebar":{"Github":"https://github.com/MwumLi/book-refactoring2","pdf":"https://book-refactoring2.ifmicro.com/ebook/refactoring2.pdf","epub":"https://book-refactoring2.ifmicro.com/ebook/refactoring2.epub","mobi":"https://book-refactoring2.ifmicro.com/ebook/refactoring2.mobi"}},"gitbook":"3.2.3"},"file":{"path":"docs/ch12.md","mtime":"2021-01-18T15:36:21.484Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-18T16:01:39.157Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -6883,6 +6919,22 @@
     
         
         <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
