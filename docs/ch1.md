@@ -71,13 +71,13 @@ function statement (invoice, plays) {
     switch (play.type) {
     case "tragedy":
       thisAmount = 40000;
-      if (perf.audience &gt; 30) {
+      if (perf.audience > 30) {
         thisAmount += 1000 * (perf.audience - 30);
       }
       break;
     case "comedy":
       thisAmount = 30000;
-      if (perf.audience &gt; 20) {
+      if (perf.audience > 20) {
         thisAmount += 10000 + 500 * (perf.audience - 20);
       }
       thisAmount += 300 * perf.audience;
@@ -165,13 +165,13 @@ function statement (invoice, plays) {
     switch (play.type) {
     case "tragedy":
       thisAmount = 40000;
-      if (perf.audience &gt; 30) {
+      if (perf.audience > 30) {
         thisAmount += 1000 * (perf.audience - 30);
       }
       break;
     case "comedy":
       thisAmount = 30000;
-      if (perf.audience &gt; 20) {
+      if (perf.audience > 20) {
         thisAmount += 10000 + 500 * (perf.audience - 20);
       }
       thisAmount += 300 * perf.audience;
@@ -209,13 +209,13 @@ function amountFor(perf, play) {
   switch (play.type) {
   case "tragedy":
     thisAmount = 40000;
-    if (perf.audience &gt; 30) {
+    if (perf.audience > 30) {
       thisAmount += 1000 * (perf.audience - 30);
     }
     break;
   case "comedy":
     thisAmount = 30000;
-    if (perf.audience &gt; 20) {
+    if (perf.audience > 20) {
       thisAmount += 10000 + 500 * (perf.audience - 20);
     }
     thisAmount += 300 * perf.audience;
@@ -285,13 +285,13 @@ function amountFor(perf, play) {
   switch (play.type) {
   case "tragedy":
     result = 40000;
-    if (perf.audience &gt; 30) {
+    if (perf.audience > 30) {
       result += 1000 * (perf.audience - 30);
     }
     break;
   case "comedy":
     result = 30000;
-    if (perf.audience &gt; 20) {
+    if (perf.audience > 20) {
       result += 10000 + 500 * (perf.audience - 20);
     }
     result += 300 * perf.audience;
@@ -313,13 +313,13 @@ function amountFor(aPerformance, play) {
   switch (play.type) {
   case "tragedy":
     result = 40000;
-    if (aPerformance.audience &gt; 30) {
+    if (aPerformance.audience > 30) {
       result += 1000 * (aPerformance.audience - 30);
     }
     break;
   case "comedy":
     result = 30000;
-    if (aPerformance.audience &gt; 20) {
+    if (aPerformance.audience > 20) {
       result += 10000 + 500 * (aPerformance.audience - 20);
     }
     result += 300 * aPerformance.audience;
@@ -423,13 +423,13 @@ function amountFor(aPerformance, play) {
   switch (playFor(aPerformance).type) {
   case "tragedy":
     result = 40000;
-    if (aPerformance.audience &gt; 30) {
+    if (aPerformance.audience > 30) {
       result += 1000 * (aPerformance.audience - 30);
     }
     break;
   case "comedy":
     result = 30000;
-    if (aPerformance.audience &gt; 20) {
+    if (aPerformance.audience > 20) {
       result += 10000 + 500 * (aPerformance.audience - 20);
     }
     result += 300 * aPerformance.audience;
@@ -478,13 +478,13 @@ function amountFor(aPerformance , play ) {
   switch (playFor(aPerformance).type) {
   case "tragedy":
     result = 40000;
-    if (aPerformance.audience &gt; 30) {
+    if (aPerformance.audience > 30) {
       result += 1000 * (aPerformance.audience - 30);
     }
     break;
   case "comedy":
     result = 30000;
-    if (aPerformance.audience &gt; 20) {
+    if (aPerformance.audience > 20) {
       result += 10000 + 500 * (aPerformance.audience - 20);
     }
     result += 300 * aPerformance.audience;
@@ -957,13 +957,13 @@ function statement (invoice, plays) {
     switch (playFor(aPerformance).type) {
     case "tragedy":
       result = 40000;
-      if (aPerformance.audience &gt; 30) {
+      if (aPerformance.audience > 30) {
         result += 1000 * (aPerformance.audience - 30);
       }
       break;
     case "comedy":
       result = 30000;
-      if (aPerformance.audience &gt; 20) {
+      if (aPerformance.audience > 20) {
         result += 10000 + 500 * (aPerformance.audience - 20);
       }
       result += 300 * aPerformance.audience;
@@ -1157,13 +1157,13 @@ functionamountFor(aPerformance){
   switch (aPerformance.play.type) {
   case "tragedy":
     result = 40000;
-    if (aPerformance.audience &gt; 30) {
+    if (aPerformance.audience > 30) {
       result += 1000 * (aPerformance.audience - 30);
     }
     break;
   case "comedy":
     result = 30000;
-    if (aPerformance.audience &gt; 20) {
+    if (aPerformance.audience > 20) {
       result += 10000 + 500 * (aPerformance.audience - 20);
     }
     result += 300 * aPerformance.audience;
@@ -1279,11 +1279,11 @@ return result;
 ```js
   function totalAmount(data) {
   return data.performances
-    .reduce((total, p) =&gt; total + p.amount, 0);
+    .reduce((total, p) => total + p.amount, 0);
 }
 function totalVolumeCredits(data) {
   return data.performances
-    .reduce((total, p) =&gt; total + p.volumeCredits, 0);
+    .reduce((total, p) => total + p.volumeCredits, 0);
 }
 ```
 
@@ -1341,16 +1341,16 @@ function htmlStatement (invoice, plays) {
   return renderHtml(createStatementData(invoice, plays));
 }
 function renderHtml (data) {
-  let result = `&lt;h1&gt;Statement for ${data.customer}&lt;/h1&gt;\n`;
-  result += "&lt;table&gt;\n";
-  result += "&lt;tr&gt;&lt;th&gt;play&lt;/th&gt;&lt;th&gt;seats&lt;/th&gt;&lt;th&gt;cost&lt;/th&gt;&lt;/tr&gt;";
+  let result = `<h1>Statement for ${data.customer}</h1>\n`;
+  result += "<table>\n";
+  result += "<tr><th>play</th><th>seats</th><th>cost</th></tr>";
   for (let perf of data.performances) {
-    result += ` &lt;tr&gt;&lt;td&gt;${perf.play.name}&lt;/td&gt;&lt;td&gt;${perf.audience}&lt;/td&gt;`;
-    result += `&lt;td&gt;${usd(perf.amount)}&lt;/td&gt;&lt;/tr&gt;\n`;
+    result += ` <tr><td>${perf.play.name}</td><td>${perf.audience}</td>`;
+    result += `<td>${usd(perf.amount)}</td></tr>\n`;
   }
-  result += "&lt;/table&gt;\n";
-  result += `&lt;p&gt;Amount owed is &lt;em&gt;${usd(data.totalAmount)}&lt;/em&gt;&lt;/p&gt;\n`;
-  result += `&lt;p&gt;You earned &lt;em&gt;${data.totalVolumeCredits}&lt;/em&gt; credits&lt;/p&gt;\n`;
+  result += "</table>\n";
+  result += `<p>Amount owed is <em>${usd(data.totalAmount)}</em></p>\n`;
+  result += `<p>You earned <em>${data.totalVolumeCredits}</em> credits</p>\n`;
   return result;
 }
 
@@ -1385,19 +1385,19 @@ function htmlStatement(invoice, plays) {
   return renderHtml(createStatementData(invoice, plays));
 }
 function renderHtml(data) {
-  let result = `&lt;h1&gt;Statement for ${data.customer}&lt;/h1&gt;\n`;
-  result += "&lt;table&gt;\n";
+  let result = `<h1>Statement for ${data.customer}</h1>\n`;
+  result += "<table>\n";
   result +=
-    "&lt;tr&gt;&lt;th&gt;play&lt;/th&gt;&lt;th&gt;seats&lt;/th&gt;&lt;th&gt;cost&lt;/th&gt;&lt;/tr&gt;";
+    "<tr><th>play</th><th>seats</th><th>cost</th></tr>";
   for (let perf of data.performances) {
-    result += ` &lt;tr&gt;&lt;td&gt;${perf.play.name}&lt;/td&gt;&lt;td&gt;${perf.audience}&lt;/td&gt;`;
-    result += `&lt;td&gt;${usd(perf.amount)}&lt;/td&gt;&lt;/tr&gt;\n`;
+    result += ` <tr><td>${perf.play.name}</td><td>${perf.audience}</td>`;
+    result += `<td>${usd(perf.amount)}</td></tr>\n`;
   }
-  result += "&lt;/table&gt;\n";
-  result += `&lt;p&gt;Amount owed is &lt;em&gt;${usd(
+  result += "</table>\n";
+  result += `<p>Amount owed is <em>${usd(
     data.totalAmount
-  )}&lt;/em&gt;&lt;/p&gt;\n`;
-  result += `&lt;p&gt;You earned &lt;em&gt;${data.totalVolumeCredits}&lt;/em&gt; credits&lt;/p&gt;\n`;
+  )}</em></p>\n`;
+  result += `<p>You earned <em>${data.totalVolumeCredits}</em> credits</p>\n`;
   return result;
 }
 function usd(aNumber) {
@@ -1435,13 +1435,13 @@ createStatementData.js
     switch (aPerformance.play.type) {
     case "tragedy":
       result = 40000;
-      if (aPerformance.audience &gt; 30) {
+      if (aPerformance.audience > 30) {
         result += 1000 * (aPerformance.audience - 30);
       }
       break;
     case "comedy":
       result = 30000;
-      if (aPerformance.audience &gt; 20) {
+      if (aPerformance.audience > 20) {
         result += 10000 + 500 * (aPerformance.audience - 20);
       }
       result += 300 * aPerformance.audience;
@@ -1459,11 +1459,11 @@ createStatementData.js
   }
   function totalAmount(data) {
     return data.performances
-      .reduce((total, p) =&gt; total + p.amount, 0);
+      .reduce((total, p) => total + p.amount, 0);
   }
   function totalVolumeCredits(data) {
     return data.performances
-      .reduce((total, p) =&gt; total + p.volumeCredits, 0);
+      .reduce((total, p) => total + p.volumeCredits, 0);
   }
 ```
 
@@ -1511,13 +1511,13 @@ let result = 0;
 switch (aPerformance.play.type) {
 case "tragedy":
     result = 40000;
-    if (aPerformance.audience &gt; 30) {
+    if (aPerformance.audience > 30) {
     result += 1000 * (aPerformance.audience - 30);
     }
     break;
 case "comedy":
     result = 30000;
-    if (aPerformance.audience &gt; 20) {
+    if (aPerformance.audience > 20) {
     result += 10000 + 500 * (aPerformance.audience - 20);
     }
     result += 300 * aPerformance.audience;
@@ -1535,11 +1535,11 @@ return result;
 }
 function totalAmount(data) {
 return data.performances
-    .reduce((total, p) =&gt; total + p.amount, 0);
+    .reduce((total, p) => total + p.amount, 0);
 }
 function totalVolumeCredits(data) {
 return data.performances
-    .reduce((total, p) =&gt; total + p.volumeCredits, 0);
+    .reduce((total, p) => total + p.volumeCredits, 0);
 }
 ```
 
@@ -1615,13 +1615,13 @@ class PerformanceCalculator {
   switch (this.play.type) {
     case "tragedy":
       result = 40000;
-      if (this.performance.audience &gt; 30) {
+      if (this.performance.audience > 30) {
         result += 1000 * (this.performance.audience - 30);
       }
       break;
     case "comedy":
       result = 30000;
-      if (this.performance.audience &gt; 20) {
+      if (this.performance.audience > 20) {
         result += 10000 + 500 * (this.performance.audience - 20);
       }
       result += 300 * this.performance.audience;
@@ -1749,7 +1749,7 @@ class ComedyCalculator extends PerformanceCalculator {}
 ```js
   get amount() {
   let result = 40000;
-  if (this.performance.audience &gt; 30) {
+  if (this.performance.audience > 30) {
     result += 1000 * (this.performance.audience - 30);
   }
   return result;
@@ -1768,7 +1768,7 @@ class ComedyCalculator extends PerformanceCalculator {}
       throw 'bad thing';
     case "comedy":
       result = 30000;
-      if (this.performance.audience &gt; 20) {
+      if (this.performance.audience > 20) {
         result += 10000 + 500 * (this.performance.audience - 20);
       }
       result += 300 * this.performance.audience;
@@ -1789,7 +1789,7 @@ class ComedyCalculator extends PerformanceCalculator {}
 ```js
   get amount() {
   let result = 30000;
-  if (this.performance.audience &gt; 20) {
+  if (this.performance.audience > 20) {
     result += 10000 + 500 * (this.performance.audience - 20);
   }
   result += 300 * this.performance.audience;
@@ -1853,11 +1853,11 @@ createStatementData.js
   }
   function totalAmount(data) {
     return data.performances
-      .reduce((total, p) =&gt; total + p.amount, 0);
+      .reduce((total, p) => total + p.amount, 0);
   }
   function totalVolumeCredits(data) {
     return data.performances
-      .reduce((total, p) =&gt; total + p.volumeCredits, 0);
+      .reduce((total, p) => total + p.volumeCredits, 0);
   }
 }
 function createPerformanceCalculator(aPerformance, aPlay) {
@@ -1883,7 +1883,7 @@ class PerformanceCalculator {
 class TragedyCalculator extends PerformanceCalculator {
   get amount() {
     let result = 40000;
-    if (this.performance.audience &gt; 30) {
+    if (this.performance.audience > 30) {
       result += 1000 * (this.performance.audience - 30);
     }
     return result;
@@ -1892,7 +1892,7 @@ class TragedyCalculator extends PerformanceCalculator {
 class ComedyCalculator extends PerformanceCalculator {
   get amount() {
     let result = 30000;
-    if (this.performance.audience &gt; 20) {
+    if (this.performance.audience > 20) {
       result += 10000 + 500 * (this.performance.audience - 20);
     }
     result += 300 * this.performance.audience;

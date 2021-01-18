@@ -396,12 +396,12 @@ function getRating(driver) {
 }
 
 function moreThanFiveLateDeliveries(driver) {
- return driver.numberOfLateDeliveries &gt; 5;
+ return driver.numberOfLateDeliveries > 5;
 }
 
 
 function getRating(driver) {
- return (driver.numberOfLateDeliveries &gt; 5) ? 2 : 1;
+ return (driver.numberOfLateDeliveries > 5) ? 2 : 1;
 }
 ```
 
@@ -724,7 +724,7 @@ class Order {
 
 ```js
 let basePrice = anOrder.basePrice;
-return (basePrice &gt; 1000);
+return (basePrice > 1000);
 ```
 
 ```js
@@ -950,7 +950,7 @@ function inNewEngland(aCustomer) {
 #### 调用方...
 
 ```js
-  const newEnglanders = someCustomers.filter(c =&gt; inNewEngland(c));
+  const newEnglanders = someCustomers.filter(c => inNewEngland(c));
 ```
 
 inNewEngland 函数只用到了顾客所在的州（state）这项信息，基于这个信息来判断顾客是否来自新英格兰地区。我希望重构这个函数，使其接受州代码（state code）作为参数，这样就能去掉对“顾客”概念的依赖，使这个函数能在更多的上下文中使用。
@@ -992,7 +992,7 @@ function inNewEngland(aCustomer) {
 #### 调用方...
 
 ```js
-  const newEnglanders = someCustomers.filter(c =&gt; xxNEWinNewEngland(c.address.state));
+  const newEnglanders = someCustomers.filter(c => xxNEWinNewEngland(c.address.state));
 ```
 
 旧函数被内联到各调用处之后，我就再次使用改变函数声明，把新函数改回旧名字：
@@ -1000,7 +1000,7 @@ function inNewEngland(aCustomer) {
 #### 调用方...
 
 ```js
-  const newEnglanders = someCustomers.filter(c =&gt; inNewEngland(c.address.state));
+  const newEnglanders = someCustomers.filter(c => inNewEngland(c.address.state));
 ```
 
 #### 顶层作用域...
@@ -1241,7 +1241,7 @@ let tpHd = "untitled";
 有些地方是在读取变量值：
 
 ```js
-result += `&lt;h1&gt;${tpHd}&lt;/h1&gt;`;
+result += `<h1>${tpHd}</h1>`;
 ```
 
 另一些地方则更新它的值：
@@ -1253,7 +1253,7 @@ tpHd = obj["articleTitle"];
 对于这种情况，我通常的反应是运用封装变量（132）：
 
 ```js
-result += `&lt;h1&gt;${title()}&lt;/h1&gt;`;
+result += `<h1>${title()}</h1>`;
 
 setTitle(obj["articleTitle"]);
 
@@ -1363,7 +1363,7 @@ const station = {
 ```js
 function readingsOutsideRange(station, min, max) {
  return station.readings
-  .filter(r =&gt; r.temp &lt; min || r.temp &gt; max);
+  .filter(r => r.temp < min || r.temp > max);
 }
 ```
 
@@ -1402,7 +1402,7 @@ class NumberRange {
 ```js
 function readingsOutsideRange(station, min, max, range) {
  return station.readings
-  .filter(r =&gt; r.temp &lt; min || r.temp &gt; max);
+  .filter(r => r.temp < min || r.temp > max);
 }
 ```
 
@@ -1443,7 +1443,7 @@ alerts = readingsOutsideRange(
 ```js
 function readingsOutsideRange(station, min, max, range) {
  return station.readings
-  .filter(r =&gt; r.temp &lt; min || r.temp &gt; range.max);
+  .filter(r => r.temp < min || r.temp > range.max);
 }
 ```
 
@@ -1467,7 +1467,7 @@ alerts = readingsOutsideRange(
 ```js
 function readingsOutsideRange(station, min, range) {
  return station.readings
-  .filter(r =&gt; r.temp &lt; range.min || r.temp &gt; range.max);
+  .filter(r => r.temp < range.min || r.temp > range.max);
 }
 ```
 
@@ -1486,14 +1486,14 @@ alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, range);
 ```js
 function readingsOutsideRange(station, range) {
  return station.readings
-  .f ilter(r =&gt; !range.contains(r.temp));
+  .f ilter(r => !range.contains(r.temp));
 }
 ```
 
 #### class NumberRange...
 
 ```js
-  contains(arg) {return (arg &gt;= this.min &amp;&amp; arg &lt;= this.max);}
+  contains(arg) {return (arg >= this.min &amp;&amp; arg <= this.max);}
 ```
 
 这样我就迈出了第一步，开始逐渐打造一个真正有用的“范围”[mf-range]类。一旦识别出“范围”这个概念，那么每当我在代码中发现“最大/最小值”这样一对数字时，我就会考虑是否可以将其改为使用“范围”类。（例如，我马上就会考虑把“运作计划”类中的 temperatureFloor 和 temperatureCeiling 替换为 temperatureRange。）在观察这些成对出现的数字如何被使用时，我会发现一些有用的行为，并将其搬移到“范围”类中，简化其使用方法。比如，我可能会先给这个类加上“基于数值判断相等性”的函数，使其成为一个真正的值对象。
@@ -1993,7 +1993,7 @@ function priceOrder(product, quantity, shippingMethod) {
  const basePrice = product.basePrice * quantity;
  const discount = Math.max(quantity - product.discountThreshold, 0)
      * product.basePrice * product.discountRate;
- const shippingPerCase = (basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = quantity * shippingPerCase;
  const price = basePrice - discount + shippingCost;
@@ -2014,7 +2014,7 @@ function priceOrder(product, quantity, shippingMethod) {
  return price;
 }
 function applyShipping(basePrice, shippingMethod, quantity, discount) {
- const shippingPerCase = (basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = quantity * shippingPerCase;
  const price = basePrice - discount + shippingCost;
@@ -2037,7 +2037,7 @@ function priceOrder(product, quantity, shippingMethod) {
 }
 
 function applyShipping(priceData, basePrice, shippingMethod, quantity, discount) {
- const shippingPerCase = (basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = quantity * shippingPerCase;
  const price = basePrice - discount + shippingCost;
@@ -2057,7 +2057,7 @@ function priceOrder(product, quantity, shippingMethod) {
  return price;
 }
 function applyShipping(priceData, basePrice, shippingMethod, quantity, discount) {
- const shippingPerCase = (priceData.basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = quantity * shippingPerCase;
  const price = priceData.basePrice - discount + shippingCost;
@@ -2079,7 +2079,7 @@ function priceOrder(product, quantity, shippingMethod) {
  return price;
 }
 function applyShipping(priceData, shippingMethod, quantity, discount) {
- const shippingPerCase = (priceData.basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = priceData.quantity * shippingPerCase;
  const price = priceData.basePrice - discount + shippingCost;
@@ -2099,7 +2099,7 @@ function priceOrder(product, quantity, shippingMethod) {
  return price;
 }
 function applyShipping(priceData, shippingMethod, discount) {
- const shippingPerCase = (priceData.basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = priceData.quantity * shippingPerCase;
  const price = priceData.basePrice - priceData.discount + shippingCost;
@@ -2122,7 +2122,7 @@ function calculatePricingData(product, quantity) {
  return {basePrice: basePrice, quantity: quantity, discount:discount};
 }
 function applyShipping(priceData, shippingMethod) {
- const shippingPerCase = (priceData.basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = priceData.quantity * shippingPerCase;
  const price = priceData.basePrice - priceData.discount + shippingCost;
@@ -2146,7 +2146,7 @@ function calculatePricingData(product, quantity) {
  return {basePrice: basePrice, quantity: quantity, discount:discount};
 }
 function applyShipping(priceData, shippingMethod) {
- const shippingPerCase = (priceData.basePrice &gt; shippingMethod.discountThreshold)
+ const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
      ? shippingMethod.discountedFee : shippingMethod.feePerCase;
  const shippingCost = priceData.quantity * shippingPerCase;
  return priceData.basePrice - priceData.discount + shippingCost;

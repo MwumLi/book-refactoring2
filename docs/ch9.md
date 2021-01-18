@@ -24,7 +24,7 @@ console.log(area);
 
 ### 动机
 
-变量有各种不同的用途，其中某些用途会很自然地导致临时变量被多次赋值。“循环变量”和“结果收集变量”就是两个典型例子：循环变量（loop variable）会随循环的每次运行而改变（例如 for（let i=0; i&lt;10; i++）语句中的 i）；结果收集变量（collecting variable）负责将“通过整个函数的运算”而构成的某个值收集起来。
+变量有各种不同的用途，其中某些用途会很自然地导致临时变量被多次赋值。“循环变量”和“结果收集变量”就是两个典型例子：循环变量（loop variable）会随循环的每次运行而改变（例如 for（let i=0; i<10; i++）语句中的 i）；结果收集变量（collecting variable）负责将“通过整个函数的运算”而构成的某个值收集起来。
 
 除了这两种情况，还有很多变量用于保存一段冗长代码的运算结果，以便稍后使用。这种变量应该只被赋值一次。如果它们被赋值超过一次，就意味它们在函数中承担了一个以上的责任。如果变量承担多个责任，它就应该被替换（分解）为多个变量，每个变量只承担一个责任。同一个变量承担两件不同的事情，会令代码阅读者糊涂。
 
@@ -53,7 +53,7 @@ function distanceTravelled (scenario, time) {
  let primaryTime = Math.min(time, scenario.delay);
  result = 0.5 * acc * primaryTime * primaryTime;
  let secondaryTime = time - scenario.delay;
- if (secondaryTime &gt; 0) {
+ if (secondaryTime > 0) {
   let primaryVelocity = acc * scenario.delay;
   acc = (scenario.primaryForce + scenario.secondaryForce) / scenario.mass;
   result += primaryVelocity * secondaryTime + 0.5 * acc * secondaryTime * secondaryTime;
@@ -75,7 +75,7 @@ function distanceTravelled (scenario, time) {
  let primaryTime = Math.min(time, scenario.delay);
  result = 0.5 * primaryAcceleration * primaryTime * primaryTime;
  let secondaryTime = time - scenario.delay;
- if (secondaryTime &gt; 0) {
+ if (secondaryTime > 0) {
   let primaryVelocity = primaryAcceleration * scenario.delay;
   let acc = (scenario.primaryForce + scenario.secondaryForce) / scenario.mass;
   result += primaryVelocity * secondaryTime + 0.5 * acc * secondaryTime * secondaryTime;
@@ -95,7 +95,7 @@ function distanceTravelled (scenario, time) {
  let primaryTime = Math.min(time, scenario.delay);
  result = 0.5 * primaryAcceleration * primaryTime * primaryTime;
  let secondaryTime = time - scenario.delay;
- if (secondaryTime &gt; 0) {
+ if (secondaryTime > 0) {
   let primaryVelocity = primaryAcceleration * scenario.delay;
   const secondaryAcceleration = (scenario.primaryForce + scenario.secondaryForce) / scenario.mass;
   result += primaryVelocity * secondaryTime +
@@ -113,8 +113,8 @@ function distanceTravelled (scenario, time) {
 
 ```js
 function discount (inputValue, quantity) {
- if (inputValue &gt; 50) inputValue = inputValue - 2;
- if (quantity &gt; 100) inputValue = inputValue - 1;
+ if (inputValue > 50) inputValue = inputValue - 2;
+ if (quantity > 100) inputValue = inputValue - 1;
  return inputValue;
 }
 ```
@@ -126,8 +126,8 @@ function discount (inputValue, quantity) {
 ```js
 function discount (originalInputValue, quantity) {
  let inputValue = originalInputValue;
- if (inputValue &gt; 50) inputValue = inputValue - 2;
- if (quantity &gt; 100) inputValue = inputValue - 1;
+ if (inputValue > 50) inputValue = inputValue - 2;
+ if (quantity > 100) inputValue = inputValue - 1;
  return inputValue;
 }
 ```
@@ -137,8 +137,8 @@ function discount (originalInputValue, quantity) {
 ```js
 function discount (inputValue, quantity) {
  let result = inputValue;
- if (inputValue &gt; 50) result = result - 2;
- if (quantity &gt; 100) result = result - 1;
+ if (inputValue > 50) result = result - 2;
+ if (quantity > 100) result = result - 1;
  return result;
 }
 ```
@@ -402,7 +402,7 @@ get production() {
 
 get calculatedProduction() {
  return this._adjustments
-  .reduce((sum, a) =&gt; sum + a.amount, 0);
+  .reduce((sum, a) => sum + a.amount, 0);
 }
 ```
 
@@ -424,7 +424,7 @@ get production() {
 ```js
 get production() {
   return this._adjustments
-    .reduce((sum, a) =&gt; sum + a.amount, 0);
+    .reduce((sum, a) => sum + a.amount, 0);
 }
 ```
 
@@ -484,7 +484,7 @@ get production() {
 
 get calculatedProductionAccumulator() {
  return this._adjustments
-  .reduce((sum, a) =&gt; sum + a.amount, 0);
+  .reduce((sum, a) => sum + a.amount, 0);
 }
 ```
 

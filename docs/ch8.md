@@ -80,7 +80,7 @@ function trackSummary(points) {
 
  function calculateDistance() {
   let result = 0;
-  for (let i = 1; i &lt; points.length; i++) {
+  for (let i = 1; i < points.length; i++) {
    result += distance(points[i-1],  points[i]);
   }
   return result;
@@ -110,7 +110,7 @@ function trackSummary(points) {
 
  function calculateDistance() {
   let result  =  0;
-  for (let i = 1; i &lt; points.length; i++) {
+  for (let i = 1; i < points.length; i++) {
    result += distance(points[i-1], points[i]);
   }
   return result;
@@ -124,7 +124,7 @@ function trackSummary(points) {
 
  function top_calculateDistance() {
   let result  =  0;
-  for (let i = 1; i &lt; points.length; i++) {
+  for (let i = 1; i < points.length; i++) {
    result += distance(points[i-1],  points[i]);
   }
   return result;
@@ -138,7 +138,7 @@ function trackSummary(points) {
 ```js
   function top_calculateDistance(points) {
  let result =0;
- for (let i = 1; i &lt; points.length; i++) {
+ for (let i = 1; i < points.length; i++) {
   result += distance(points[i-1],  points[i]);
  }
  return result;
@@ -182,7 +182,7 @@ function radians(degrees) {
 
  function calculateDistance() {
   let result = 0;
-  for (let i = 1; i &lt; points.length; i++) {
+  for (let i = 1; i < points.length; i++) {
    result += distance(points[i-1], points[i]);
   }
   return result;
@@ -198,7 +198,7 @@ function radians(degrees) {
 ```js
   function top_calculateDistance(points) {
  let result = 0;
- for (let i = 1; i &lt; points.length; i++) {
+ for (let i = 1; i < points.length; i++) {
   result += distance(points[i-1],  points[i]);
  }
  return result;
@@ -260,7 +260,7 @@ function trackSummary(points) {
 }
 function totalDistance(points) {
  let result = 0;
- for (let i = 1; i &lt; points.length; i++) {
+ for (let i = 1; i < points.length; i++) {
   result += distance(points[i-1], points[i]);
  }
  return result;
@@ -289,14 +289,14 @@ function radians(degrees) { ... }
 ```js
   get bankCharge() {
  let result = 4.5;
- if (this._daysOverdrawn &gt; 0) result += this.overdraftCharge;
+ if (this._daysOverdrawn > 0) result += this.overdraftCharge;
  return result;
 }
 
 get overdraftCharge() {
  if (this.type.isPremium) {
   const baseCharge = 10;
-  if (this.daysOverdrawn &lt;= 7)
+  if (this.daysOverdrawn <= 7)
    return baseCharge;
   else
    return baseCharge + (this.daysOverdrawn - 7) * 0.85;
@@ -318,7 +318,7 @@ get overdraftCharge() {
   overdraftCharge(daysOverdrawn) {
  if (this.isPremium) {
   const baseCharge  =  10;
-  if (daysOverdrawn &lt;= 7)
+  if (daysOverdrawn <= 7)
    return baseCharge;
   else
    return baseCharge + (daysOverdrawn - 7) * 0.85;
@@ -337,7 +337,7 @@ get overdraftCharge() {
 ```js
   get bankCharge() {
  let result = 4.5;
- if (this._daysOverdrawn &gt; 0) result += this.overdraftCharge;
+ if (this._daysOverdrawn > 0) result += this.overdraftCharge;
  return result;
 }
 
@@ -353,7 +353,7 @@ get overdraftCharge() {
 ```js
   get bankCharge() {
  let result = 4.5;
- if (this._daysOverdrawn &gt; 0)
+ if (this._daysOverdrawn > 0)
   result += this.type.overdraftCharge(this.daysOverdrawn);
  return result;
 }
@@ -366,7 +366,7 @@ get overdraftCharge() {
 ```js
   get bankCharge() {
  let result = 4.5;
- if (this._daysOverdrawn &gt; 0) result += this.overdraftCharge;
+ if (this._daysOverdrawn > 0) result += this.overdraftCharge;
  return result;
 }
 
@@ -381,7 +381,7 @@ class AccountType…
   overdraftCharge(account) {
  if (this.isPremium) {
   const baseCharge = 10;
-  if (account.daysOverdrawn &lt;= 7)
+  if (account.daysOverdrawn <= 7)
    return baseCharge;
   else
    return baseCharge + (account.daysOverdrawn - 7) * 0.85;
@@ -607,13 +607,13 @@ get interestRate() {return this._type.interestRate;}
 反向重构：搬移语句到调用者（217）
 
 ```js
-result.push(`&lt;p&gt;title: ${person.photo.title}&lt;/p&gt;`);
+result.push(`<p>title: ${person.photo.title}</p>`);
 result.concat(photoData(person.photo));
 
 function photoData(aPhoto) {
   return [
-    `&lt;p&gt;location: ${aPhoto.location}&lt;/p&gt;`,
-    `&lt;p&gt;date: ${aPhoto.date.toDateString()}&lt;/p&gt;`,
+    `<p>location: ${aPhoto.location}</p>`,
+    `<p>date: ${aPhoto.date.toDateString()}</p>`,
   ];
 }
 
@@ -621,9 +621,9 @@ result.concat(photoData(person.photo));
 
 function photoData(aPhoto) {
   return [
-    `&lt;p&gt;title: ${aPhoto.title}&lt;/p&gt;`,
-    `&lt;p&gt;location: ${aPhoto.location}&lt;/p&gt;`,
-    `&lt;p&gt;date: ${aPhoto.date.toDateString()}&lt;/p&gt;`,
+    `<p>title: ${aPhoto.title}</p>`,
+    `<p>location: ${aPhoto.location}</p>`,
+    `<p>date: ${aPhoto.date.toDateString()}</p>`,
   ];
 }
 ```
@@ -657,25 +657,25 @@ function photoData(aPhoto) {
 ```js
 function renderPerson(outStream, person) {
   const result = [];
-  result.push(`&lt;p&gt;${person.name}&lt;/p&gt;`);
+  result.push(`<p>${person.name}</p>`);
   result.push(renderPhoto(person.photo));
-  result.push(`&lt;p&gt;title: ${person.photo.title}&lt;/p&gt;`);
+  result.push(`<p>title: ${person.photo.title}</p>`);
   result.push(emitPhotoData(person.photo));
   return result.join("\n");
 }
 function photoDiv(p) {
   return [
-    "&lt;div&gt;",
-    `&lt;p&gt;title:  ${p.title}&lt;/p&gt;`,
+    "<div>",
+    `<p>title:  ${p.title}</p>`,
     emitPhotoData(p),
-    "&lt;/div&gt;",
+    "</div>",
   ].join("\n");
 }
 
 function emitPhotoData(aPhoto) {
   const result = [];
-  result.push(`&lt;p&gt;location: ${aPhoto.location}&lt;/p&gt;`);
-  result.push(`&lt;p&gt;date: ${aPhoto.date.toDateString()}&lt;/p&gt;`);
+  result.push(`<p>location: ${aPhoto.location}</p>`);
+  result.push(`<p>date: ${aPhoto.date.toDateString()}</p>`);
   return result.join("\n");
 }
 ```
@@ -686,11 +686,11 @@ function emitPhotoData(aPhoto) {
 
 ```js
 function photoDiv(p) {
-  return ["&lt;div&gt;", zznew(p), "&lt;/div&gt;"].join("\n");
+  return ["<div>", zznew(p), "</div>"].join("\n");
 }
 
 function zznew(p) {
-  return [`&lt;p&gt;title: ${p.title}&lt;/p&gt;`, emitPhotoData(p)].join("\n");
+  return [`<p>title: ${p.title}</p>`, emitPhotoData(p)].join("\n");
 }
 ```
 
@@ -699,7 +699,7 @@ function zznew(p) {
 ```js
 function renderPerson(outStream, person) {
   const result = [];
-  result.push(`&lt;p&gt;${person.name}&lt;/p&gt;`);
+  result.push(`<p>${person.name}</p>`);
   result.push(renderPhoto(person.photo));
   result.push(zznew(person.photo));
   return result.join("\n");
@@ -711,9 +711,9 @@ function renderPerson(outStream, person) {
 ```js
 function zznew(p) {
   return [
-    `&lt;p&gt;title: ${p.title}&lt;/p&gt;`,
-    `&lt;p&gt;location: ${p.location}&lt;/p&gt;`,
-    `&lt;p&gt;date: ${p.date.toDateString()}&lt;/p&gt;`,
+    `<p>title: ${p.title}</p>`,
+    `<p>location: ${p.location}</p>`,
+    `<p>date: ${p.date.toDateString()}</p>`,
   ].join("\n");
 }
 ```
@@ -723,21 +723,21 @@ function zznew(p) {
 ```js
 function renderPerson(outStream, person) {
   const result = [];
-  result.push(`&lt;p&gt;${person.name}&lt;/p&gt;`);
+  result.push(`<p>${person.name}</p>`);
   result.push(renderPhoto(person.photo));
   result.push(emitPhotoData(person.photo));
   return result.join("\n");
 }
 
 function photoDiv(aPhoto) {
-  return ["&lt;div&gt;", emitPhotoData(aPhoto), "&lt;/div&gt;"].join("\n");
+  return ["<div>", emitPhotoData(aPhoto), "</div>"].join("\n");
 }
 
 function emitPhotoData(aPhoto) {
   return [
-    `&lt;p&gt;title: ${aPhoto.title}&lt;/p&gt;`,
-    `&lt;p&gt;location: ${aPhoto.location}&lt;/p&gt;`,
-    `&lt;p&gt;date: ${aPhoto.date.toDateString()}&lt;/p&gt;`,
+    `<p>title: ${aPhoto.title}</p>`,
+    `<p>location: ${aPhoto.location}</p>`,
+    `<p>date: ${aPhoto.date.toDateString()}</p>`,
   ].join("\n");
 }
 ```
@@ -752,15 +752,15 @@ function emitPhotoData(aPhoto) {
 emitPhotoData(outStream, person.photo);
 
 function emitPhotoData(outStream, photo) {
-  outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
-  outStream.write(`&lt;p&gt;location: ${photo.location}&lt;/p&gt;\n`);
+  outStream.write(`<p>title: ${photo.title}</p>\n`);
+  outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
 emitPhotoData(outStream, person.photo);
-outStream.write(`&lt;p&gt;location: ${person.photo.location}&lt;/p&gt;\n`);
+outStream.write(`<p>location: ${person.photo.location}</p>\n`);
 
 function emitPhotoData(outStream, photo) {
-  outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
+  outStream.write(`<p>title: ${photo.title}</p>\n`);
 }
 ```
 
@@ -792,25 +792,25 @@ function emitPhotoData(outStream, photo) {
 
 ```js
   function renderPerson(outStream, person) {
- outStream.write(`&lt;p&gt;${person.name}&lt;/p&gt;\n`);
+ outStream.write(`<p>${person.name}</p>\n`);
  renderPhoto(outStream, person.photo);
  emitPhotoData(outStream, person.photo);
 }
 
 function listRecentPhotos(outStream, photos) {
  photos
-  .filter(p =&gt; p.date &gt; recentDateCutoff())
-  .forEach(p =&gt; {
-   outStream.write("&lt;div&gt;\n");
+  .filter(p => p.date > recentDateCutoff())
+  .forEach(p => {
+   outStream.write("<div>\n");
    emitPhotoData(outStream, p);
-   outStream.write("&lt;/div&gt;\n");
+   outStream.write("</div>\n");
   });
 }
 
 function emitPhotoData(outStream, photo) {
- outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;date: ${photo.date.toDateString()}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;location: ${photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>title: ${photo.title}</p>\n`);
+ outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
+ outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 ```
 
@@ -822,29 +822,29 @@ function emitPhotoData(outStream, photo) {
 
 ```js
   function renderPerson(outStream, person) {
- outStream.write(`&lt;p&gt;${person.name}&lt;/p&gt;\n`);
+ outStream.write(`<p>${person.name}</p>\n`);
  renderPhoto(outStream, person.photo);
  emitPhotoData(outStream, person.photo);
 }
 
 function listRecentPhotos(outStream, photos) {
  photos
-  .filter(p =&gt; p.date &gt; recentDateCutoff())
-  .forEach(p =&gt; {
-   outStream.write("&lt;div&gt;\n");
+  .filter(p => p.date > recentDateCutoff())
+  .forEach(p => {
+   outStream.write("<div>\n");
    emitPhotoData(outStream, p);
-   outStream.write("&lt;/div&gt;\n");
+   outStream.write("</div>\n");
   });
 }
 
 function  emitPhotoData(outStream, photo) {
  zztmp(outStream,  photo);
- outStream.write(`&lt;p&gt;location: ${photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
 function zztmp(outStream, photo) {
- outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;date: ${photo.date.toDateString()}&lt;/p&gt;\n`);
+ outStream.write(`<p>title: ${photo.title}</p>\n`);
+ outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
 }
 ```
 
@@ -854,29 +854,29 @@ function zztmp(outStream, photo) {
 
 ```js
   function renderPerson(outStream, person) {
- outStream.write(`&lt;p&gt;${person.name}&lt;/p&gt;\n`);
+ outStream.write(`<p>${person.name}</p>\n`);
  renderPhoto(outStream, person.photo);
  zztmp(outStream,  person.photo);
- outStream.write(`&lt;p&gt;location: ${person.photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${person.photo.location}</p>\n`);
 }
 function listRecentPhotos(outStream, photos) {
  photos
-  .filter(p =&gt; p.date &gt; recentDateCutoff())
-  .forEach(p =&gt; {
-   outStream.write("&lt;div&gt;\n");
+  .filter(p => p.date > recentDateCutoff())
+  .forEach(p => {
+   outStream.write("<div>\n");
    emitPhotoData(outStream, p);
-   outStream.write("&lt;/div&gt;\n");
+   outStream.write("</div>\n");
   });
 }
 
 function emitPhotoData(outStream, photo) {
  zztmp(outStream, photo);
- outStream.write(`&lt;p&gt;location: ${photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
 function zztmp(outStream, photo) {
- outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;date: ${photo.date.toDateString()}&lt;/p&gt;\n`);
+ outStream.write(`<p>title: ${photo.title}</p>\n`);
+ outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
 }
 ```
 
@@ -884,31 +884,31 @@ function zztmp(outStream, photo) {
 
 ```js
   function renderPerson(outStream, person) {
- outStream.write(`&lt;p&gt;${person.name}&lt;/p&gt;\n`);
+ outStream.write(`<p>${person.name}</p>\n`);
  renderPhoto(outStream, person.photo);
  zztmp(outStream,  person.photo);
- outStream.write(`&lt;p&gt;location: ${person.photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${person.photo.location}</p>\n`);
 }
 
 function listRecentPhotos(outStream, photos) {
  photos
-  .filter(p =&gt; p.date &gt; recentDateCutoff())
-  .forEach(p =&gt; {
-   outStream.write("&lt;div&gt;\n");
+  .filter(p => p.date > recentDateCutoff())
+  .forEach(p => {
+   outStream.write("<div>\n");
    zztmp(outStream, p);
-   outStream.write(`&lt;p&gt;location: ${p.location}&lt;/p&gt;\n`);
-   outStream.write("&lt;/div&gt;\n");
+   outStream.write(`<p>location: ${p.location}</p>\n`);
+   outStream.write("</div>\n");
   });
 }
 
 function emitPhotoData(outStream, photo) {
  zztmp(outStream, photo);
- outStream.write(`&lt;p&gt;location: ${photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
 function zztmp(outStream, photo) {
- outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;date: ${photo.date.toDateString()}&lt;/p&gt;\n`);
+ outStream.write(`<p>title: ${photo.title}</p>\n`);
+ outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
 }
 ```
 
@@ -916,31 +916,31 @@ function zztmp(outStream, photo) {
 
 ```js
 function renderPerson(outStream, person) {
- outStream.write(`&lt;p&gt;${person.name}&lt;/p&gt;\n`);
+ outStream.write(`<p>${person.name}</p>\n`);
  renderPhoto(outStream, person.photo);
  zztmp(outStream,  person.photo);
- outStream.write(`&lt;p&gt;location: ${person.photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${person.photo.location}</p>\n`);
 }
 
 function listRecentPhotos(outStream, photos) {
  photos
-  .filter(p =&gt; p.date &gt; recentDateCutoff())
-  .forEach(p =&gt; {
-   outStream.write("&lt;div&gt;\n");
+  .filter(p => p.date > recentDateCutoff())
+  .forEach(p => {
+   outStream.write("<div>\n");
    zztmp(outStream, p);
-   outStream.write(`&lt;p&gt;location: ${p.location}&lt;/p&gt;\n`);
-   outStream.write("&lt;/div&gt;\n");
+   outStream.write(`<p>location: ${p.location}</p>\n`);
+   outStream.write("</div>\n");
   });
 }
 
 function emitPhotoData(outStream, photo) {
  zztmp(outStream, photo);
- outStream.write(`&lt;p&gt;location: ${photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
 function zztmp(outStream, photo) {
- outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;date: ${photo.date.toDateString()}&lt;/p&gt;\n`);
+ outStream.write(`<p>title: ${photo.title}</p>\n`);
+ outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
 }
 ```
 
@@ -948,26 +948,26 @@ function zztmp(outStream, photo) {
 
 ```js
 function renderPerson(outStream, person) {
- outStream.write(`&lt;p&gt;${person.name}&lt;/p&gt;\n`);
+ outStream.write(`<p>${person.name}</p>\n`);
  renderPhoto(outStream, person.photo);
  emitPhotoData(outStream, person.photo);
- outStream.write(`&lt;p&gt;location: ${person.photo.location}&lt;/p&gt;\n`);
+ outStream.write(`<p>location: ${person.photo.location}</p>\n`);
 }
 
 function listRecentPhotos(outStream, photos) {
  photos
-  .filter(p =&gt; p.date &gt; recentDateCutoff())
-  .forEach(p =&gt; {
-   outStream.write("&lt;div&gt;\n");
+  .filter(p => p.date > recentDateCutoff())
+  .forEach(p => {
+   outStream.write("<div>\n");
    emitPhotoData(outStream, p);
-   outStream.write(`&lt;p&gt;location: ${p.location}&lt;/p&gt;\n`);
-   outStream.write("&lt;/div&gt;\n");
+   outStream.write(`<p>location: ${p.location}</p>\n`);
+   outStream.write("</div>\n");
   });
 }
 
 function emitPhotoData(outStream, photo) {
- outStream.write(`&lt;p&gt;title: ${photo.title}&lt;/p&gt;\n`);
- outStream.write(`&lt;p&gt;date: ${photo.date.toDateString()}&lt;/p&gt;\n`);
+ outStream.write(`<p>title: ${photo.title}</p>\n`);
+ outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
 }
 ```
 
@@ -1167,7 +1167,7 @@ averageAge = averageAge / people.length;
 let youngest = people[0] ? people[0].age : Infinity;
 let totalSalary = 0;
 for (const p of people) {
- if (p.age &lt; youngest) youngest = p.age;
+ if (p.age < youngest) youngest = p.age;
  totalSalary += p.salary;
 }
 
@@ -1180,11 +1180,11 @@ return `youngestAge: ${youngest}, totalSalary: ${totalSalary}`;
 let youngest = people[0] ? people[0].age : Infinity;
 let totalSalary = 0;
 for (const p of people) {
- if (p.age &lt; youngest) youngest = p.age;
+ if (p.age < youngest) youngest = p.age;
  totalSalary += p.salary;
 }
 for (const p of people) {
- if (p.age &lt; youngest) youngest = p.age;
+ if (p.age < youngest) youngest = p.age;
  totalSalary += p.salary;
 }
 
@@ -1197,12 +1197,12 @@ return `youngestAge: ${youngest}, totalSalary: ${totalSalary}`;
 let youngest = people[0] ? people[0].age : Infinity;
 let totalSalary = 0;
 for (const p of people) {
- if (p.age &lt; youngest) youngest = p.age;
+ if (p.age < youngest) youngest = p.age;
  totalSalary += p.salary;
 }
 
 for (const p of people) {
- if (p.age &lt; youngest) youngest = p.age;
+ if (p.age < youngest) youngest = p.age;
  totalSalary += p.salary;
 }
 
@@ -1219,7 +1219,7 @@ for (const p of people) {
 
 let youngest = people[0] ? people[0].age : Infinity;
 for (const p of people) {
- if (p.age &lt; youngest) youngest = p.age;
+ if (p.age < youngest) youngest = p.age;
 }
 
 return `youngestAge: ${youngest}, totalSalary: ${totalSalary}`;
@@ -1241,7 +1241,7 @@ function totalSalary() {
 function youngestAge() {
  let youngest = people[0] ? people[0].age : Infinity;
  for (const p of people) {
-  if (p.age &lt; youngest) youngest = p.age;
+  if (p.age < youngest) youngest = p.age;
  }
  return youngest;
 }
@@ -1253,10 +1253,10 @@ function youngestAge() {
   return `youngestAge: ${youngestAge()}, totalSalary: ${totalSalary()}`;
 
 function totalSalary() {
- return people.reduce((total,p) =&gt; total + p.salary, 0);
+ return people.reduce((total,p) => total + p.salary, 0);
 }
 function youngestAge() {
- return Math.min(...people.map(p =&gt; p.age));
+ return Math.min(...people.map(p => p.age));
 }
 ```
 
@@ -1271,8 +1271,8 @@ for (const i of input) {
 
 
 const names = input
-  .filter(i =&gt; i.job === "programmer")
-  .map(i =&gt; i.name)
+  .filter(i => i.job === "programmer")
+  .map(i => i.name)
 ;
 ```
 
@@ -1387,7 +1387,7 @@ function acquireData(input) {
  const result = [];
  const loopItems = lines
     .slice(1)
-    .filter(line =&gt; line.trim() !== "")
+    .filter(line => line.trim() !== "")
     ;
  for (const line of loopItems) {
   if (line.trim() === "") continue;
@@ -1410,8 +1410,8 @@ function acquireData(input) {
  const result = [];
  const loopItems = lines
     .slice(1)
-    .filter(line =&gt; line.trim() !== "")
-    .map(line =&gt; line.split(","))
+    .filter(line => line.trim() !== "")
+    .map(line => line.split(","))
     ;
  for (const line of loopItems) {
   const record = line;.split(",");
@@ -1431,9 +1431,9 @@ function acquireData(input) {
  const result = [];
  const loopItems = lines
     .slice(1)
-    .filter(line =&gt; line.trim() !== "")
-    .map(line =&gt; line.split(","))
-    .filter(record =&gt; record[1].trim() === "India")
+    .filter(line => line.trim() !== "")
+    .map(line => line.split(","))
+    .filter(record => record[1].trim() === "India")
     ;
  for (const line of loopItems) {
   const record = line;
@@ -1453,10 +1453,10 @@ function acquireData(input) {
  const result = [];
  const loopItems = lines
     .slice(1)
-    .filter(line =&gt; line.trim() !== "")
-    .map(line =&gt; line.split(","))
-    .filter(record =&gt; record[1].trim() === "India")
-    .map(record =&gt; ({city: record[0].trim(), phone: record[2].trim()}))
+    .filter(line => line.trim() !== "")
+    .map(line => line.split(","))
+    .filter(record => record[1].trim() === "India")
+    .map(record => ({city: record[0].trim(), phone: record[2].trim()}))
     ;
  for (const line of loopItems) {
   const record = line;
@@ -1473,10 +1473,10 @@ function acquireData(input) {
  const lines = input.split("\n");
  const result = lines
     .slice(1)
-    .filter(line =&gt; line.trim() !== "")
-    .map(line =&gt; line.split(","))
-    .filter(record =&gt; record[1].trim() === "India")
-    .map(record =&gt; ({city: record[0].trim(), phone: record[2].trim()}))
+    .filter(line => line.trim() !== "")
+    .map(line => line.split(","))
+    .filter(record => record[1].trim() === "India")
+    .map(record => ({city: record[0].trim(), phone: record[2].trim()}))
     ;
  for (const line of loopItems) {
   const record = line;
@@ -1493,10 +1493,10 @@ function acquireData(input) {
  const lines = input.split("\n");
  return lines
     .slice (1)
-    .filter (line =&gt; line.trim() !== "")
-    .map   (line =&gt; line.split(","))
-    .filter (fields =&gt; fields[1].trim() === "India")
-    .map   (fields =&gt; ({city: fields[0].trim(), phone: fields[2].trim()}))
+    .filter (line => line.trim() !== "")
+    .map   (line => line.split(","))
+    .filter (fields => fields[1].trim() === "India")
+    .map   (fields => ({city: fields[0].trim(), phone: fields[2].trim()}))
     ;
 }
 ```

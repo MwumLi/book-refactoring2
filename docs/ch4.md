@@ -59,7 +59,7 @@ constructor(doc) {
  this._totalProduction = 0;
  this._demand = doc.demand;
  this._price = doc.price;
- doc.producers.forEach(d =&gt; this.addProducer(new Producer(this, d)));
+ doc.producers.forEach(d => this.addProducer(new Producer(this, d)));
 }
 addProducer(arg) {
  this._producers.push(arg);
@@ -151,8 +151,8 @@ get demandCost() {
  let remainingDemand = this.demand;
  let result = 0;
  this.producers
-  .sort((a,b) =&gt; a.cost - b.cost)
-  .forEach(p =&gt; {
+  .sort((a,b) => a.cost - b.cost)
+  .forEach(p => {
    const contribution = Math.min(remainingDemand, p.production);
     remainingDemand -= contribution;
     result += contribution * p.cost;
@@ -222,7 +222,7 @@ get shortfall() {
 
 1) province shortfall:
 AssertionError: expected -20 to equal 5
-at Context.&lt;anonymous&gt; (src/tester.js:10:12)
+at Context.<anonymous> (src/tester.js:10:12)
 ```
 
 框架会报告哪个测试失败了，并给出失败的根本原因——这里是因为实际算出的值与期望的值不相符。于是我总算见到有什么东西失败了，并且还能马上看到是哪个测试失败，获得一些出错的线索（这个例子中，我还能确认这就是我引入的那个错误）。
@@ -442,7 +442,7 @@ describe('string for producers', function() {
 1) string for producers :
   TypeError: doc.producers.forEach is not a function
   at new Province (src/main.js:22:19)
-  at Context.&lt;anonymous&gt; (src/tester.js:86:18)
+  at Context.<anonymous> (src/tester.js:86:18)
 ```
 
 Mocha 把这也当作测试失败（failure），但多数测试框架会把它当作一个错误（error），并与正常的测试失败区分开。“失败”指的是在验证阶段中，实际值与验证语句提供的期望值不相等；而这里的“错误”则是另一码事，它是在更早的阶段前抛出的异常（这里是在配置阶段）。它更像代码的作者没有预料到的一种异常场景，因此我们不幸地得到了每个 JavaScript 程序员都很熟悉的错误（“...is not a function”）。
