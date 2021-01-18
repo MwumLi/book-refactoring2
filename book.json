@@ -2,8 +2,16 @@
   "gitbook": "3.2.3",
   "title": "重构: 改善既有代码的设计",
   "language": "zh",
-  "plugins": ["prism", "-highlight", "anchors", "toggle-chapters", "-lunr", "-search", "search-pro"],
+  "plugins": ["prism", "-highlight", "anchors", "toggle-chapters", "-lunr", "-search", "search-pro", "code"],
   "styles" : {
     "website": "assets/website.css"
+  },
+  "links" : {
+    "sidebar" : {
+      "Github" : "https://github.com/MwumLi/book-refactoring2",
+      "pdf": "https://book-refactoring2.ifmicro.com/ebook/refactoring2.pdf",
+      "epub": "https://book-refactoring2.ifmicro.com/ebook/refactoring2.epub",
+      "mobi": "https://book-refactoring2.ifmicro.com/ebook/refactoring2.mobi"
+    }
   }
 }
