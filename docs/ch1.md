@@ -1138,7 +1138,7 @@ function playFor(aPerformance) {
 #### function renderPlainText...
 
 ```js
-  let result = `Statement for ${data.customer}\n`;
+let result = `Statement for ${data.customer}\n`;
 for (let perf of data.performances) {
   result += ` ${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
 }
@@ -1153,7 +1153,7 @@ function volumeCreditsFor(aPerformance) {
   return result;
 }
 
-functionamountFor(aPerformance){
+function amountFor(aPerformance){
   let result = 0;
   switch (aPerformance.play.type) {
   case "tragedy":
