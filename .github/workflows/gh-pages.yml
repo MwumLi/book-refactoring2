@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  gh-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -21,6 +21,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
           yarn
           npm run build
           cp CNAME ./_book/ && npm run ebook && mv ebook ./_book/
