@@ -27,7 +27,7 @@ jobs:
           cp CNAME ./_book/ && npm run ebook && mv ebook ./_book/
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@master
+        uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           branch: gh-pages
           folder: _book
