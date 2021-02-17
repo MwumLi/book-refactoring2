@@ -1,5 +1,7 @@
 # book-refactoring2
 
+![更新在线书籍](https://github.com/MwumLi/book-refactoring2/workflows/%E6%9B%B4%E6%96%B0%E5%9C%A8%E7%BA%BF%E4%B9%A6%E7%B1%8D/badge.svg?branch=main&event=push)  
+
 《重构 改善既有代码的设计第二版》中文版  
 
 ## 资源获取  
@@ -42,6 +44,10 @@ $ npm run ebook
 
 * Node.js ^10.x - ^11.x LTS 版本    
 * gitbook ^3.x: 因为要支持中文搜索    
+
+## 贡献
+
+本文还有很多文案不准确或源码格式乱的问题, 如有发现欢迎可以[提 pr](https://github.com/MwumLi/book-refactoring2/pulls) 进行贡献  
 ## 感谢  
 
 本书源码来自 [NxeedGoto/Refactoring2-zh](https://github.com/NxeedGoto/Refactoring2-zh.git), 由于为了构建电子书籍, 所以改造成了 gitbook 格式。  
