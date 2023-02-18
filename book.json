@@ -13,5 +13,20 @@
       "epub": "https://book-refactoring2.ifmicro.com/ebook/refactoring2.epub",
       "mobi": "https://book-refactoring2.ifmicro.com/ebook/refactoring2.mobi"
     }
-  }
+  },
+  "pdf": {
+      "fontFamily": "Arial Unicode MS",
+      "fontSize": 12,
+      "pageNumbers": true,
+      "paperSize": "a4",
+      "margin": {
+          "right": 62,
+          "left": 62,
+          "top": 56,
+          "bottom": 56
+      },
+      "toc": {
+          "depth": 3
+      }
+}
 }
