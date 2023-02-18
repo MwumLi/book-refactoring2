@@ -21,7 +21,9 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          sudo apt-get update
           sudo apt-get install libegl1 libopengl0
+          sudo apt-get install fonts-wqy-zenhei
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
           yarn
           npm run build
