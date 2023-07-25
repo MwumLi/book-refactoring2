@@ -728,8 +728,7 @@ return (basePrice > 1000);
 ```
 
 ```js
-return anOrder.basePrice & gt;
-1000;
+return anOrder.basePrice > 1000;
 ```
 
 ### 动机
